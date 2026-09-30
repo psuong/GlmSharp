@@ -8,5 +8,6 @@
     <!-- <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects> -->
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Nullable>disable</Nullable>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 </Project>
