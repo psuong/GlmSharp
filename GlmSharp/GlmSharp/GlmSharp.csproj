@@ -6,6 +6,7 @@
     <AssemblyName>GlmSharp</AssemblyName>
     <OutputType>Library</OutputType>
     <Nullable>disable</Nullable>
+    <PublishAot>true</PublishAot>
   </PropertyGroup>
 
   <PropertyGroup>

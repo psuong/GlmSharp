@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="GlmSharp/GlmSharp.csproj" />
+  <Project Path="GlmSharpCompat/GlmSharpCompat.csproj" />
+  <Project Path="GlmSharpGenerator/GlmSharpGenerator.csproj" />
+  <Project Path="GlmSharpTest/GlmSharpTest.csproj" />
+</Solution>
