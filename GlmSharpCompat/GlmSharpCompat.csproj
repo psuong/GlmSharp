@@ -2,17 +2,18 @@
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>GlmSharp</RootNamespace>
-    <AssemblyName>GlmSharp</AssemblyName>
+    <AssemblyName>GlmSharpCompatRenewed</AssemblyName>
     <OutputType>Library</OutputType>
     <Nullable>disable</Nullable>
-    <PackageId>GlmSharpRenewed</PackageId>
-    <Version>0.1.0</Version>
+    <PackageId>GlmSharpCompatRenewed</PackageId>
+    <Version>1.0.0</Version>
     <RepositoryType>git</RepositoryType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryUrl>https://github.com/psuong/GlmSharp</RepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>
