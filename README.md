@@ -4,6 +4,11 @@ Open-source MIT-licensed C#/.NET math library for small vectors and matrices.
 
 The naming and behavior is inspired by the excellent [OpenGL Mathematics](http://glm.g-truc.net/) lib by Christophe Riccio.
 
+The original version of the repo can be found [here](https://github.com/Philip-Trettner/GlmSharp).
+
+## Notes
+The tests have not been ported.
+
 ## Example
 
 ```C#
