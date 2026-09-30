@@ -6,10 +6,8 @@
     <AssemblyName>GlmSharp</AssemblyName>
     <OutputType>Library</OutputType>
     <Nullable>disable</Nullable>
-    <PublishAot>true</PublishAot>
   </PropertyGroup>
-
   <PropertyGroup>
-    <NoWarn>$(NoWarn);CS8981</NoWarn>
+    <NoWarn>$(NoWarn);CS8981;CS8765;CS8767</NoWarn>
   </PropertyGroup>
 </Project>
