@@ -1,0 +1,9 @@
+# configuration file for dotnet-releaser
+[msbuild]
+project = "GlmSharp.slnx"
+[github]
+user = "psuong"
+repo = "GlmSharp"
+[nuget]
+user = "psuong"
+trusted_publishing = true
