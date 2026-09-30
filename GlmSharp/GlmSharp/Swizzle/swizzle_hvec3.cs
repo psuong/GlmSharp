@@ -28,19 +28,19 @@ namespace GlmSharp.Swizzle
         /// x-component
         /// </summary>
         [DataMember]
-        internal readonly Half x;
+        internal readonly GlmHalf x;
         
         /// <summary>
         /// y-component
         /// </summary>
         [DataMember]
-        internal readonly Half y;
+        internal readonly GlmHalf y;
         
         /// <summary>
         /// z-component
         /// </summary>
         [DataMember]
-        internal readonly Half z;
+        internal readonly GlmHalf z;
 
         #endregion
 
@@ -50,7 +50,7 @@ namespace GlmSharp.Swizzle
         /// <summary>
         /// Constructor for swizzle_hvec3.
         /// </summary>
-        internal swizzle_hvec3(Half x, Half y, Half z)
+        internal swizzle_hvec3(GlmHalf x, GlmHalf y, GlmHalf z)
         {
             this.x = x;
             this.y = y;

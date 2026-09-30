@@ -197,17 +197,17 @@ namespace GlmSharp
         /// <summary>
         /// Explicitly converts this to a hvec2.
         /// </summary>
-        public static explicit operator hvec2(dvec2 v) => new hvec2((Half)v.x, (Half)v.y);
+        public static explicit operator hvec2(dvec2 v) => new hvec2((GlmHalf)v.x, (GlmHalf)v.y);
         
         /// <summary>
         /// Explicitly converts this to a hvec3. (Higher components are zeroed)
         /// </summary>
-        public static explicit operator hvec3(dvec2 v) => new hvec3((Half)v.x, (Half)v.y, Half.Zero);
+        public static explicit operator hvec3(dvec2 v) => new hvec3((GlmHalf)v.x, (GlmHalf)v.y, GlmHalf.Zero);
         
         /// <summary>
         /// Explicitly converts this to a hvec4. (Higher components are zeroed)
         /// </summary>
-        public static explicit operator hvec4(dvec2 v) => new hvec4((Half)v.x, (Half)v.y, Half.Zero, Half.Zero);
+        public static explicit operator hvec4(dvec2 v) => new hvec4((GlmHalf)v.x, (GlmHalf)v.y, GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Explicitly converts this to a dvec3. (Higher components are zeroed)

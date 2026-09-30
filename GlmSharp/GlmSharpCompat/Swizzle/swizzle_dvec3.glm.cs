@@ -1,11 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
-using GlmSharp.Swizzle;
-
 // ReSharper disable InconsistentNaming
 
 namespace GlmSharp.Swizzle

@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
 using GlmSharp.Swizzle;
 
 // ReSharper disable InconsistentNaming
@@ -195,17 +193,17 @@ namespace GlmSharp
         /// <summary>
         /// Explicitly converts this to a hvec2.
         /// </summary>
-        public static explicit operator hvec2(bvec3 v) => new hvec2(v.x ? Half.One : Half.Zero, v.y ? Half.One : Half.Zero);
+        public static explicit operator hvec2(bvec3 v) => new hvec2(v.x ? GlmHalf.One : GlmHalf.Zero, v.y ? GlmHalf.One : GlmHalf.Zero);
         
         /// <summary>
         /// Explicitly converts this to a hvec3.
         /// </summary>
-        public static explicit operator hvec3(bvec3 v) => new hvec3(v.x ? Half.One : Half.Zero, v.y ? Half.One : Half.Zero, v.z ? Half.One : Half.Zero);
+        public static explicit operator hvec3(bvec3 v) => new hvec3(v.x ? GlmHalf.One : GlmHalf.Zero, v.y ? GlmHalf.One : GlmHalf.Zero, v.z ? GlmHalf.One : GlmHalf.Zero);
         
         /// <summary>
         /// Explicitly converts this to a hvec4. (Higher components are zeroed)
         /// </summary>
-        public static explicit operator hvec4(bvec3 v) => new hvec4(v.x ? Half.One : Half.Zero, v.y ? Half.One : Half.Zero, v.z ? Half.One : Half.Zero, Half.Zero);
+        public static explicit operator hvec4(bvec3 v) => new hvec4(v.x ? GlmHalf.One : GlmHalf.Zero, v.y ? GlmHalf.One : GlmHalf.Zero, v.z ? GlmHalf.One : GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Explicitly converts this to a dvec2.

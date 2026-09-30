@@ -115,7 +115,7 @@ namespace GlmSharp
         /// <summary>
         /// Implicitly converts this to a hquat.
         /// </summary>
-        public static implicit operator hquat(iquat v) => new hquat((Half)v.x, (Half)v.y, (Half)v.z, (Half)v.w);
+        public static implicit operator hquat(iquat v) => new hquat((GlmHalf)v.x, (GlmHalf)v.y, (GlmHalf)v.z, (GlmHalf)v.w);
         
         /// <summary>
         /// Implicitly converts this to a dquat.
@@ -160,7 +160,7 @@ namespace GlmSharp
         /// <summary>
         /// Explicitly converts this to a hvec4.
         /// </summary>
-        public static explicit operator hvec4(iquat v) => new hvec4((Half)v.x, (Half)v.y, (Half)v.z, (Half)v.w);
+        public static explicit operator hvec4(iquat v) => new hvec4((GlmHalf)v.x, (GlmHalf)v.y, (GlmHalf)v.z, (GlmHalf)v.w);
         
         /// <summary>
         /// Explicitly converts this to a dvec4.

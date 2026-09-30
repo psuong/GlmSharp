@@ -1,10 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
-using GlmSharp.Swizzle;
 
 // ReSharper disable InconsistentNaming
 
@@ -19,17 +13,17 @@ namespace GlmSharp
         /// <summary>
         /// Creates a 2D array with all values (address: Values[x, y])
         /// </summary>
-        public static T[,] Values<T>(gmat2x4<T> m) => m.Values;
+        public static T[,] Values<T>(gmat2x4<T> m) where T : unmanaged => m.Values;
         
         /// <summary>
         /// Creates a 1D array with all values (internal order)
         /// </summary>
-        public static T[] Values1D<T>(gmat2x4<T> m) => m.Values1D;
+        public static T[] Values1D<T>(gmat2x4<T> m) where T : unmanaged => m.Values1D;
         
         /// <summary>
         /// Returns an enumerator that iterates through all fields.
         /// </summary>
-        public static IEnumerator<T> GetEnumerator<T>(gmat2x4<T> m) => m.GetEnumerator();
+        public static IEnumerator<T> GetEnumerator<T>(gmat2x4<T> m) where T : unmanaged => m.GetEnumerator();
 
     }
 }

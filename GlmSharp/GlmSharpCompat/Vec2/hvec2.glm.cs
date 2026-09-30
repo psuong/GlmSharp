@@ -1,9 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
 using GlmSharp.Swizzle;
 
 // ReSharper disable InconsistentNaming
@@ -24,12 +20,12 @@ namespace GlmSharp
         /// <summary>
         /// Returns an array with all values
         /// </summary>
-        public static Half[] Values(hvec2 v) => v.Values;
+        public static GlmHalf[] Values(hvec2 v) => v.Values;
         
         /// <summary>
         /// Returns an enumerator that iterates through all components.
         /// </summary>
-        public static IEnumerator<Half> GetEnumerator(hvec2 v) => v.GetEnumerator();
+        public static IEnumerator<GlmHalf> GetEnumerator(hvec2 v) => v.GetEnumerator();
         
         /// <summary>
         /// Returns a string representation of this vector using ', ' as a seperator.
@@ -384,12 +380,12 @@ namespace GlmSharp
         /// <summary>
         /// Returns the minimal component of this vector.
         /// </summary>
-        public static Half MinElement(hvec2 v) => v.MinElement;
+        public static GlmHalf MinElement(hvec2 v) => v.MinElement;
         
         /// <summary>
         /// Returns the maximal component of this vector.
         /// </summary>
-        public static Half MaxElement(hvec2 v) => v.MaxElement;
+        public static GlmHalf MaxElement(hvec2 v) => v.MaxElement;
         
         /// <summary>
         /// Returns the euclidean length of this vector.
@@ -404,7 +400,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns the sum of all components.
         /// </summary>
-        public static Half Sum(hvec2 v) => v.Sum;
+        public static GlmHalf Sum(hvec2 v) => v.Sum;
         
         /// <summary>
         /// Returns the euclidean norm of this vector.
@@ -454,7 +450,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns the inner product (dot product, scalar product) of the two vectors.
         /// </summary>
-        public static Half Dot(hvec2 lhs, hvec2 rhs) => hvec2.Dot(lhs, rhs);
+        public static GlmHalf Dot(hvec2 lhs, hvec2 rhs) => hvec2.Dot(lhs, rhs);
         
         /// <summary>
         /// Returns the euclidean distance between the two vectors.
@@ -474,7 +470,7 @@ namespace GlmSharp
         /// <summary>
         /// Calculate the refraction direction for an incident vector (The input parameters I and N should be normalized in order to achieve the desired result).
         /// </summary>
-        public static hvec2 Refract(hvec2 I, hvec2 N, Half eta) => hvec2.Refract(I, N, eta);
+        public static hvec2 Refract(hvec2 I, hvec2 N, GlmHalf eta) => hvec2.Refract(I, N, eta);
         
         /// <summary>
         /// Returns a vector pointing in the same direction as another (faceforward orients a vector to point away from a surface as defined by its normal. If dot(Nref, I) is negative faceforward returns N, otherwise it returns -N).
@@ -484,7 +480,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns the length of the outer product (cross product, vector product) of the two vectors.
         /// </summary>
-        public static Half Cross(hvec2 l, hvec2 r) => hvec2.Cross(l, r);
+        public static GlmHalf Cross(hvec2 l, hvec2 r) => hvec2.Cross(l, r);
         
         /// <summary>
         /// Returns a hvec2 with independent and identically distributed uniform values between 'minValue' and 'maxValue'.

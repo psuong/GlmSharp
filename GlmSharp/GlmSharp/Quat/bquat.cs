@@ -135,12 +135,12 @@ namespace GlmSharp
         /// <summary>
         /// Explicitly converts this to a hvec4.
         /// </summary>
-        public static explicit operator hvec4(bquat v) => new hvec4(v.x ? Half.One : Half.Zero, v.y ? Half.One : Half.Zero, v.z ? Half.One : Half.Zero, v.w ? Half.One : Half.Zero);
+        public static explicit operator hvec4(bquat v) => new hvec4(v.x ? GlmHalf.One : GlmHalf.Zero, v.y ? GlmHalf.One : GlmHalf.Zero, v.z ? GlmHalf.One : GlmHalf.Zero, v.w ? GlmHalf.One : GlmHalf.Zero);
         
         /// <summary>
         /// Explicitly converts this to a hquat.
         /// </summary>
-        public static explicit operator hquat(bquat v) => new hquat(v.x ? Half.One : Half.Zero, v.y ? Half.One : Half.Zero, v.z ? Half.One : Half.Zero, v.w ? Half.One : Half.Zero);
+        public static explicit operator hquat(bquat v) => new hquat(v.x ? GlmHalf.One : GlmHalf.Zero, v.y ? GlmHalf.One : GlmHalf.Zero, v.z ? GlmHalf.One : GlmHalf.Zero, v.w ? GlmHalf.One : GlmHalf.Zero);
         
         /// <summary>
         /// Explicitly converts this to a dvec4.

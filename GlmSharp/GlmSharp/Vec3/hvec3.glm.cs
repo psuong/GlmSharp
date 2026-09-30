@@ -26,12 +26,12 @@ namespace GlmSharp
         /// <summary>
         /// Returns an array with all values
         /// </summary>
-        public static Half[] Values(hvec3 v) => v.Values;
+        public static GlmHalf[] Values(hvec3 v) => v.Values;
         
         /// <summary>
         /// Returns an enumerator that iterates through all components.
         /// </summary>
-        public static IEnumerator<Half> GetEnumerator(hvec3 v) => v.GetEnumerator();
+        public static IEnumerator<GlmHalf> GetEnumerator(hvec3 v) => v.GetEnumerator();
         
         /// <summary>
         /// Returns a string representation of this vector using ', ' as a seperator.
@@ -91,7 +91,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec3 from component-wise application of Equal (lhs == rhs).
         /// </summary>
-        public static bool Equal(Half lhs, Half rhs) => lhs == rhs;
+        public static bool Equal(GlmHalf lhs, GlmHalf rhs) => lhs == rhs;
         
         /// <summary>
         /// Returns a bvec3 from component-wise application of NotEqual (lhs != rhs).
@@ -101,7 +101,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec3 from component-wise application of NotEqual (lhs != rhs).
         /// </summary>
-        public static bool NotEqual(Half lhs, Half rhs) => lhs != rhs;
+        public static bool NotEqual(GlmHalf lhs, GlmHalf rhs) => lhs != rhs;
         
         /// <summary>
         /// Returns a bvec3 from component-wise application of GreaterThan (lhs &gt; rhs).
@@ -111,7 +111,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec3 from component-wise application of GreaterThan (lhs &gt; rhs).
         /// </summary>
-        public static bool GreaterThan(Half lhs, Half rhs) => lhs > rhs;
+        public static bool GreaterThan(GlmHalf lhs, GlmHalf rhs) => lhs > rhs;
         
         /// <summary>
         /// Returns a bvec3 from component-wise application of GreaterThanEqual (lhs &gt;= rhs).
@@ -121,7 +121,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec3 from component-wise application of GreaterThanEqual (lhs &gt;= rhs).
         /// </summary>
-        public static bool GreaterThanEqual(Half lhs, Half rhs) => lhs >= rhs;
+        public static bool GreaterThanEqual(GlmHalf lhs, GlmHalf rhs) => lhs >= rhs;
         
         /// <summary>
         /// Returns a bvec3 from component-wise application of LesserThan (lhs &lt; rhs).
@@ -131,7 +131,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec3 from component-wise application of LesserThan (lhs &lt; rhs).
         /// </summary>
-        public static bool LesserThan(Half lhs, Half rhs) => lhs < rhs;
+        public static bool LesserThan(GlmHalf lhs, GlmHalf rhs) => lhs < rhs;
         
         /// <summary>
         /// Returns a bvec3 from component-wise application of LesserThanEqual (lhs &lt;= rhs).
@@ -141,7 +141,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec3 from component-wise application of LesserThanEqual (lhs &lt;= rhs).
         /// </summary>
-        public static bool LesserThanEqual(Half lhs, Half rhs) => lhs <= rhs;
+        public static bool LesserThanEqual(GlmHalf lhs, GlmHalf rhs) => lhs <= rhs;
         
         /// <summary>
         /// Returns a bvec3 from component-wise application of IsInfinity (Half.IsInfinity(v)).
@@ -151,7 +151,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec3 from component-wise application of IsInfinity (Half.IsInfinity(v)).
         /// </summary>
-        public static bool IsInfinity(Half v) => Half.IsInfinity(v);
+        public static bool IsInfinity(GlmHalf v) => GlmHalf.IsInfinity(v);
         
         /// <summary>
         /// Returns a bvec3 from component-wise application of IsFinite (!Half.IsNaN(v) &amp;&amp; !Half.IsInfinity(v)).
@@ -161,7 +161,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec3 from component-wise application of IsFinite (!Half.IsNaN(v) &amp;&amp; !Half.IsInfinity(v)).
         /// </summary>
-        public static bool IsFinite(Half v) => !Half.IsNaN(v) && !Half.IsInfinity(v);
+        public static bool IsFinite(GlmHalf v) => !GlmHalf.IsNaN(v) && !GlmHalf.IsInfinity(v);
         
         /// <summary>
         /// Returns a bvec3 from component-wise application of IsNaN (Half.IsNaN(v)).
@@ -171,7 +171,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec3 from component-wise application of IsNaN (Half.IsNaN(v)).
         /// </summary>
-        public static bool IsNaN(Half v) => Half.IsNaN(v);
+        public static bool IsNaN(GlmHalf v) => GlmHalf.IsNaN(v);
         
         /// <summary>
         /// Returns a bvec3 from component-wise application of IsNegativeInfinity (Half.IsNegativeInfinity(v)).
@@ -181,7 +181,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec3 from component-wise application of IsNegativeInfinity (Half.IsNegativeInfinity(v)).
         /// </summary>
-        public static bool IsNegativeInfinity(Half v) => Half.IsNegativeInfinity(v);
+        public static bool IsNegativeInfinity(GlmHalf v) => GlmHalf.IsNegativeInfinity(v);
         
         /// <summary>
         /// Returns a bvec3 from component-wise application of IsPositiveInfinity (Half.IsPositiveInfinity(v)).
@@ -191,7 +191,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec3 from component-wise application of IsPositiveInfinity (Half.IsPositiveInfinity(v)).
         /// </summary>
-        public static bool IsPositiveInfinity(Half v) => Half.IsPositiveInfinity(v);
+        public static bool IsPositiveInfinity(GlmHalf v) => GlmHalf.IsPositiveInfinity(v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Abs (Half.Abs(v)).
@@ -201,7 +201,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Abs (Half.Abs(v)).
         /// </summary>
-        public static Half Abs(Half v) => Half.Abs(v);
+        public static GlmHalf Abs(GlmHalf v) => GlmHalf.Abs(v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of HermiteInterpolationOrder3 ((3 - 2 * v) * v * v).
@@ -211,7 +211,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of HermiteInterpolationOrder3 ((3 - 2 * v) * v * v).
         /// </summary>
-        public static Half HermiteInterpolationOrder3(Half v) => (3 - 2 * v) * v * v;
+        public static GlmHalf HermiteInterpolationOrder3(GlmHalf v) => (3 - 2 * v) * v * v;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of HermiteInterpolationOrder5 (((6 * v - 15) * v + 10) * v * v * v).
@@ -221,7 +221,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of HermiteInterpolationOrder5 (((6 * v - 15) * v + 10) * v * v * v).
         /// </summary>
-        public static Half HermiteInterpolationOrder5(Half v) => ((6 * v - 15) * v + 10) * v * v * v;
+        public static GlmHalf HermiteInterpolationOrder5(GlmHalf v) => ((6 * v - 15) * v + 10) * v * v * v;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Sqr (v * v).
@@ -231,7 +231,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Sqr (v * v).
         /// </summary>
-        public static Half Sqr(Half v) => v * v;
+        public static GlmHalf Sqr(GlmHalf v) => v * v;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Pow2 (v * v).
@@ -241,7 +241,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Pow2 (v * v).
         /// </summary>
-        public static Half Pow2(Half v) => v * v;
+        public static GlmHalf Pow2(GlmHalf v) => v * v;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Pow3 (v * v * v).
@@ -251,7 +251,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Pow3 (v * v * v).
         /// </summary>
-        public static Half Pow3(Half v) => v * v * v;
+        public static GlmHalf Pow3(GlmHalf v) => v * v * v;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Step (v &gt;= Half.Zero ? Half.One : Half.Zero).
@@ -261,7 +261,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Step (v &gt;= Half.Zero ? Half.One : Half.Zero).
         /// </summary>
-        public static Half Step(Half v) => v >= Half.Zero ? Half.One : Half.Zero;
+        public static GlmHalf Step(GlmHalf v) => v >= GlmHalf.Zero ? GlmHalf.One : GlmHalf.Zero;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Sqrt ((Half)Math.Sqrt((double)v)).
@@ -271,7 +271,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Sqrt ((Half)Math.Sqrt((double)v)).
         /// </summary>
-        public static Half Sqrt(Half v) => (Half)Math.Sqrt((double)v);
+        public static GlmHalf Sqrt(GlmHalf v) => (GlmHalf)Math.Sqrt((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of InverseSqrt ((Half)(1.0 / Math.Sqrt((double)v))).
@@ -281,7 +281,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of InverseSqrt ((Half)(1.0 / Math.Sqrt((double)v))).
         /// </summary>
-        public static Half InverseSqrt(Half v) => (Half)(1.0 / Math.Sqrt((double)v));
+        public static GlmHalf InverseSqrt(GlmHalf v) => (GlmHalf)(1.0 / Math.Sqrt((double)v));
         
         /// <summary>
         /// Returns a ivec3 from component-wise application of Sign (Math.Sign(v)).
@@ -291,7 +291,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a ivec3 from component-wise application of Sign (Math.Sign(v)).
         /// </summary>
-        public static int Sign(Half v) => Math.Sign(v);
+        public static int Sign(GlmHalf v) => Math.Sign(v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Max (Half.Max(lhs, rhs)).
@@ -301,7 +301,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Max (Half.Max(lhs, rhs)).
         /// </summary>
-        public static Half Max(Half lhs, Half rhs) => Half.Max(lhs, rhs);
+        public static GlmHalf Max(GlmHalf lhs, GlmHalf rhs) => GlmHalf.Max(lhs, rhs);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Min (Half.Min(lhs, rhs)).
@@ -311,7 +311,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Min (Half.Min(lhs, rhs)).
         /// </summary>
-        public static Half Min(Half lhs, Half rhs) => Half.Min(lhs, rhs);
+        public static GlmHalf Min(GlmHalf lhs, GlmHalf rhs) => GlmHalf.Min(lhs, rhs);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Pow ((Half)Math.Pow((double)lhs, (double)rhs)).
@@ -321,7 +321,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Pow ((Half)Math.Pow((double)lhs, (double)rhs)).
         /// </summary>
-        public static Half Pow(Half lhs, Half rhs) => (Half)Math.Pow((double)lhs, (double)rhs);
+        public static GlmHalf Pow(GlmHalf lhs, GlmHalf rhs) => (GlmHalf)Math.Pow((double)lhs, (double)rhs);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Log ((Half)Math.Log((double)lhs, (double)rhs)).
@@ -331,7 +331,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Log ((Half)Math.Log((double)lhs, (double)rhs)).
         /// </summary>
-        public static Half Log(Half lhs, Half rhs) => (Half)Math.Log((double)lhs, (double)rhs);
+        public static GlmHalf Log(GlmHalf lhs, GlmHalf rhs) => (GlmHalf)Math.Log((double)lhs, (double)rhs);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Clamp (Half.Min(Half.Max(v, min), max)).
@@ -341,7 +341,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Clamp (Half.Min(Half.Max(v, min), max)).
         /// </summary>
-        public static Half Clamp(Half v, Half min, Half max) => Half.Min(Half.Max(v, min), max);
+        public static GlmHalf Clamp(GlmHalf v, GlmHalf min, GlmHalf max) => GlmHalf.Min(GlmHalf.Max(v, min), max);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Mix (min * (1-a) + max * a).
@@ -351,7 +351,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Mix (min * (1-a) + max * a).
         /// </summary>
-        public static Half Mix(Half min, Half max, Half a) => min * (1-a) + max * a;
+        public static GlmHalf Mix(GlmHalf min, GlmHalf max, GlmHalf a) => min * (1-a) + max * a;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Lerp (min * (1-a) + max * a).
@@ -361,7 +361,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Lerp (min * (1-a) + max * a).
         /// </summary>
-        public static Half Lerp(Half min, Half max, Half a) => min * (1-a) + max * a;
+        public static GlmHalf Lerp(GlmHalf min, GlmHalf max, GlmHalf a) => min * (1-a) + max * a;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Smoothstep (((v - edge0) / (edge1 - edge0)).Clamp().HermiteInterpolationOrder3()).
@@ -371,7 +371,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Smoothstep (((v - edge0) / (edge1 - edge0)).Clamp().HermiteInterpolationOrder3()).
         /// </summary>
-        public static Half Smoothstep(Half edge0, Half edge1, Half v) => ((v - edge0) / (edge1 - edge0)).Clamp().HermiteInterpolationOrder3();
+        public static GlmHalf Smoothstep(GlmHalf edge0, GlmHalf edge1, GlmHalf v) => ((v - edge0) / (edge1 - edge0)).Clamp().HermiteInterpolationOrder3();
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Smootherstep (((v - edge0) / (edge1 - edge0)).Clamp().HermiteInterpolationOrder5()).
@@ -381,7 +381,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Smootherstep (((v - edge0) / (edge1 - edge0)).Clamp().HermiteInterpolationOrder5()).
         /// </summary>
-        public static Half Smootherstep(Half edge0, Half edge1, Half v) => ((v - edge0) / (edge1 - edge0)).Clamp().HermiteInterpolationOrder5();
+        public static GlmHalf Smootherstep(GlmHalf edge0, GlmHalf edge1, GlmHalf v) => ((v - edge0) / (edge1 - edge0)).Clamp().HermiteInterpolationOrder5();
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Fma (a * b + c).
@@ -391,7 +391,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Fma (a * b + c).
         /// </summary>
-        public static Half Fma(Half a, Half b, Half c) => a * b + c;
+        public static GlmHalf Fma(GlmHalf a, GlmHalf b, GlmHalf c) => a * b + c;
         
         /// <summary>
         /// OuterProduct treats the first parameter c as a column vector (matrix with one column) and the second parameter r as a row vector (matrix with one row) and does a linear algebraic matrix multiply c * r, yielding a matrix whose number of rows is the number of components in c and whose number of columns is the number of components in r.
@@ -416,7 +416,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Add (lhs + rhs).
         /// </summary>
-        public static Half Add(Half lhs, Half rhs) => lhs + rhs;
+        public static GlmHalf Add(GlmHalf lhs, GlmHalf rhs) => lhs + rhs;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Sub (lhs - rhs).
@@ -426,7 +426,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Sub (lhs - rhs).
         /// </summary>
-        public static Half Sub(Half lhs, Half rhs) => lhs - rhs;
+        public static GlmHalf Sub(GlmHalf lhs, GlmHalf rhs) => lhs - rhs;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Mul (lhs * rhs).
@@ -436,7 +436,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Mul (lhs * rhs).
         /// </summary>
-        public static Half Mul(Half lhs, Half rhs) => lhs * rhs;
+        public static GlmHalf Mul(GlmHalf lhs, GlmHalf rhs) => lhs * rhs;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Div (lhs / rhs).
@@ -446,7 +446,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Div (lhs / rhs).
         /// </summary>
-        public static Half Div(Half lhs, Half rhs) => lhs / rhs;
+        public static GlmHalf Div(GlmHalf lhs, GlmHalf rhs) => lhs / rhs;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Modulo (lhs % rhs).
@@ -456,7 +456,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Modulo (lhs % rhs).
         /// </summary>
-        public static Half Modulo(Half lhs, Half rhs) => lhs % rhs;
+        public static GlmHalf Modulo(GlmHalf lhs, GlmHalf rhs) => lhs % rhs;
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Degrees (Radians-To-Degrees Conversion).
@@ -466,7 +466,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Degrees (Radians-To-Degrees Conversion).
         /// </summary>
-        public static Half Degrees(Half v) => (Half)(v * new Half(57.295779513082320876798154814105170332405472466564321));
+        public static GlmHalf Degrees(GlmHalf v) => (GlmHalf)(v * new GlmHalf(57.295779513082320876798154814105170332405472466564321));
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Radians (Degrees-To-Radians Conversion).
@@ -476,7 +476,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Radians (Degrees-To-Radians Conversion).
         /// </summary>
-        public static Half Radians(Half v) => (Half)(v * new Half(0.0174532925199432957692369076848861271344287188854172));
+        public static GlmHalf Radians(GlmHalf v) => (GlmHalf)(v * new GlmHalf(0.0174532925199432957692369076848861271344287188854172));
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Acos ((Half)Math.Acos((double)v)).
@@ -486,7 +486,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Acos ((Half)Math.Acos((double)v)).
         /// </summary>
-        public static Half Acos(Half v) => (Half)Math.Acos((double)v);
+        public static GlmHalf Acos(GlmHalf v) => (GlmHalf)Math.Acos((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Asin ((Half)Math.Asin((double)v)).
@@ -496,7 +496,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Asin ((Half)Math.Asin((double)v)).
         /// </summary>
-        public static Half Asin(Half v) => (Half)Math.Asin((double)v);
+        public static GlmHalf Asin(GlmHalf v) => (GlmHalf)Math.Asin((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Atan ((Half)Math.Atan((double)v)).
@@ -506,7 +506,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Atan ((Half)Math.Atan((double)v)).
         /// </summary>
-        public static Half Atan(Half v) => (Half)Math.Atan((double)v);
+        public static GlmHalf Atan(GlmHalf v) => (GlmHalf)Math.Atan((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Cos ((Half)Math.Cos((double)v)).
@@ -516,7 +516,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Cos ((Half)Math.Cos((double)v)).
         /// </summary>
-        public static Half Cos(Half v) => (Half)Math.Cos((double)v);
+        public static GlmHalf Cos(GlmHalf v) => (GlmHalf)Math.Cos((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Cosh ((Half)Math.Cosh((double)v)).
@@ -526,7 +526,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Cosh ((Half)Math.Cosh((double)v)).
         /// </summary>
-        public static Half Cosh(Half v) => (Half)Math.Cosh((double)v);
+        public static GlmHalf Cosh(GlmHalf v) => (GlmHalf)Math.Cosh((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Exp ((Half)Math.Exp((double)v)).
@@ -536,7 +536,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Exp ((Half)Math.Exp((double)v)).
         /// </summary>
-        public static Half Exp(Half v) => (Half)Math.Exp((double)v);
+        public static GlmHalf Exp(GlmHalf v) => (GlmHalf)Math.Exp((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Log ((Half)Math.Log((double)v)).
@@ -546,7 +546,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Log ((Half)Math.Log((double)v)).
         /// </summary>
-        public static Half Log(Half v) => (Half)Math.Log((double)v);
+        public static GlmHalf Log(GlmHalf v) => (GlmHalf)Math.Log((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Log2 ((Half)Math.Log((double)v, 2)).
@@ -556,7 +556,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Log2 ((Half)Math.Log((double)v, 2)).
         /// </summary>
-        public static Half Log2(Half v) => (Half)Math.Log((double)v, 2);
+        public static GlmHalf Log2(GlmHalf v) => (GlmHalf)Math.Log((double)v, 2);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Log10 ((Half)Math.Log10((double)v)).
@@ -566,7 +566,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Log10 ((Half)Math.Log10((double)v)).
         /// </summary>
-        public static Half Log10(Half v) => (Half)Math.Log10((double)v);
+        public static GlmHalf Log10(GlmHalf v) => (GlmHalf)Math.Log10((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Floor ((Half)Math.Floor(v)).
@@ -576,7 +576,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Floor ((Half)Math.Floor(v)).
         /// </summary>
-        public static Half Floor(Half v) => (Half)Math.Floor(v);
+        public static GlmHalf Floor(GlmHalf v) => (GlmHalf)Math.Floor(v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Ceiling ((Half)Math.Ceiling(v)).
@@ -586,7 +586,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Ceiling ((Half)Math.Ceiling(v)).
         /// </summary>
-        public static Half Ceiling(Half v) => (Half)Math.Ceiling(v);
+        public static GlmHalf Ceiling(GlmHalf v) => (GlmHalf)Math.Ceiling(v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Round ((Half)Math.Round(v)).
@@ -596,7 +596,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Round ((Half)Math.Round(v)).
         /// </summary>
-        public static Half Round(Half v) => (Half)Math.Round(v);
+        public static GlmHalf Round(GlmHalf v) => (GlmHalf)Math.Round(v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Sin ((Half)Math.Sin((double)v)).
@@ -606,7 +606,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Sin ((Half)Math.Sin((double)v)).
         /// </summary>
-        public static Half Sin(Half v) => (Half)Math.Sin((double)v);
+        public static GlmHalf Sin(GlmHalf v) => (GlmHalf)Math.Sin((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Sinh ((Half)Math.Sinh((double)v)).
@@ -616,7 +616,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Sinh ((Half)Math.Sinh((double)v)).
         /// </summary>
-        public static Half Sinh(Half v) => (Half)Math.Sinh((double)v);
+        public static GlmHalf Sinh(GlmHalf v) => (GlmHalf)Math.Sinh((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Tan ((Half)Math.Tan((double)v)).
@@ -626,7 +626,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Tan ((Half)Math.Tan((double)v)).
         /// </summary>
-        public static Half Tan(Half v) => (Half)Math.Tan((double)v);
+        public static GlmHalf Tan(GlmHalf v) => (GlmHalf)Math.Tan((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Tanh ((Half)Math.Tanh((double)v)).
@@ -636,7 +636,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Tanh ((Half)Math.Tanh((double)v)).
         /// </summary>
-        public static Half Tanh(Half v) => (Half)Math.Tanh((double)v);
+        public static GlmHalf Tanh(GlmHalf v) => (GlmHalf)Math.Tanh((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Truncate ((Half)Math.Truncate((double)v)).
@@ -646,7 +646,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Truncate ((Half)Math.Truncate((double)v)).
         /// </summary>
-        public static Half Truncate(Half v) => (Half)Math.Truncate((double)v);
+        public static GlmHalf Truncate(GlmHalf v) => (GlmHalf)Math.Truncate((double)v);
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Fract ((Half)(v - Math.Floor(v))).
@@ -656,7 +656,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Fract ((Half)(v - Math.Floor(v))).
         /// </summary>
-        public static Half Fract(Half v) => (Half)(v - Math.Floor(v));
+        public static GlmHalf Fract(GlmHalf v) => (GlmHalf)(v - Math.Floor(v));
         
         /// <summary>
         /// Returns a hvec3 from component-wise application of Trunc ((long)(v)).
@@ -666,17 +666,17 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 from component-wise application of Trunc ((long)(v)).
         /// </summary>
-        public static Half Trunc(Half v) => (long)(v);
+        public static GlmHalf Trunc(GlmHalf v) => (long)(v);
         
         /// <summary>
         /// Returns the minimal component of this vector.
         /// </summary>
-        public static Half MinElement(hvec3 v) => v.MinElement;
+        public static GlmHalf MinElement(hvec3 v) => v.MinElement;
         
         /// <summary>
         /// Returns the maximal component of this vector.
         /// </summary>
-        public static Half MaxElement(hvec3 v) => v.MaxElement;
+        public static GlmHalf MaxElement(hvec3 v) => v.MaxElement;
         
         /// <summary>
         /// Returns the euclidean length of this vector.
@@ -691,7 +691,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns the sum of all components.
         /// </summary>
-        public static Half Sum(hvec3 v) => v.Sum;
+        public static GlmHalf Sum(hvec3 v) => v.Sum;
         
         /// <summary>
         /// Returns the euclidean norm of this vector.
@@ -731,7 +731,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns the inner product (dot product, scalar product) of the two vectors.
         /// </summary>
-        public static Half Dot(hvec3 lhs, hvec3 rhs) => hvec3.Dot(lhs, rhs);
+        public static GlmHalf Dot(hvec3 lhs, hvec3 rhs) => hvec3.Dot(lhs, rhs);
         
         /// <summary>
         /// Returns the euclidean distance between the two vectors.
@@ -751,7 +751,7 @@ namespace GlmSharp
         /// <summary>
         /// Calculate the refraction direction for an incident vector (The input parameters I and N should be normalized in order to achieve the desired result).
         /// </summary>
-        public static hvec3 Refract(hvec3 I, hvec3 N, Half eta) => hvec3.Refract(I, N, eta);
+        public static hvec3 Refract(hvec3 I, hvec3 N, GlmHalf eta) => hvec3.Refract(I, N, eta);
         
         /// <summary>
         /// Returns a vector pointing in the same direction as another (faceforward orients a vector to point away from a surface as defined by its normal. If dot(Nref, I) is negative faceforward returns N, otherwise it returns -N).
@@ -771,7 +771,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 with independent and identically distributed uniform values between 'minValue' and 'maxValue'.
         /// </summary>
-        public static Half Random(Random random, Half minValue, Half maxValue) => (Half)random.NextDouble() * (maxValue - minValue) + minValue;
+        public static GlmHalf Random(Random random, GlmHalf minValue, GlmHalf maxValue) => (GlmHalf)random.NextDouble() * (maxValue - minValue) + minValue;
         
         /// <summary>
         /// Returns a hvec3 with independent and identically distributed uniform values between 'minValue' and 'maxValue'.
@@ -781,7 +781,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 with independent and identically distributed uniform values between 'minValue' and 'maxValue'.
         /// </summary>
-        public static Half RandomUniform(Random random, Half minValue, Half maxValue) => (Half)random.NextDouble() * (maxValue - minValue) + minValue;
+        public static GlmHalf RandomUniform(Random random, GlmHalf minValue, GlmHalf maxValue) => (GlmHalf)random.NextDouble() * (maxValue - minValue) + minValue;
         
         /// <summary>
         /// Returns a hvec3 with independent and identically distributed values according to a normal/Gaussian distribution with specified mean and variance.
@@ -791,7 +791,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 with independent and identically distributed values according to a normal/Gaussian distribution with specified mean and variance.
         /// </summary>
-        public static Half RandomNormal(Random random, Half mean, Half variance) => (Half)(Math.Sqrt((double)variance) * Math.Cos(2 * Math.PI * random.NextDouble()) * Math.Sqrt(-2.0 * Math.Log(random.NextDouble()))) + mean;
+        public static GlmHalf RandomNormal(Random random, GlmHalf mean, GlmHalf variance) => (GlmHalf)(Math.Sqrt((double)variance) * Math.Cos(2 * Math.PI * random.NextDouble()) * Math.Sqrt(-2.0 * Math.Log(random.NextDouble()))) + mean;
         
         /// <summary>
         /// Returns a hvec3 with independent and identically distributed values according to a normal/Gaussian distribution with specified mean and variance.
@@ -801,7 +801,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hvec3 with independent and identically distributed values according to a normal/Gaussian distribution with specified mean and variance.
         /// </summary>
-        public static Half RandomGaussian(Random random, Half mean, Half variance) => (Half)(Math.Sqrt((double)variance) * Math.Cos(2 * Math.PI * random.NextDouble()) * Math.Sqrt(-2.0 * Math.Log(random.NextDouble()))) + mean;
+        public static GlmHalf RandomGaussian(Random random, GlmHalf mean, GlmHalf variance) => (GlmHalf)(Math.Sqrt((double)variance) * Math.Cos(2 * Math.PI * random.NextDouble()) * Math.Sqrt(-2.0 * Math.Log(random.NextDouble()))) + mean;
 
     }
 }

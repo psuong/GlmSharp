@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
-using GlmSharp.Swizzle;
 
 // ReSharper disable InconsistentNaming
 
@@ -16,7 +13,7 @@ namespace GlmSharp
     /// </summary>
     [Serializable]
     [StructLayout(LayoutKind.Sequential)]
-    public struct gmat3x2<T> : IEnumerable<T>, IEquatable<gmat3x2<T>>
+    public struct gmat3x2<T> : IEnumerable<T>, IEquatable<gmat3x2<T>> where T : unmanaged
     {
 
         #region Fields

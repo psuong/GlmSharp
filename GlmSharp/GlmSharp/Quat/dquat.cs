@@ -188,12 +188,12 @@ namespace GlmSharp
         /// <summary>
         /// Explicitly converts this to a hvec4.
         /// </summary>
-        public static explicit operator hvec4(dquat v) => new hvec4((Half)v.x, (Half)v.y, (Half)v.z, (Half)v.w);
+        public static explicit operator hvec4(dquat v) => new hvec4((GlmHalf)v.x, (GlmHalf)v.y, (GlmHalf)v.z, (GlmHalf)v.w);
         
         /// <summary>
         /// Explicitly converts this to a hquat.
         /// </summary>
-        public static explicit operator hquat(dquat v) => new hquat((Half)v.x, (Half)v.y, (Half)v.z, (Half)v.w);
+        public static explicit operator hquat(dquat v) => new hquat((GlmHalf)v.x, (GlmHalf)v.y, (GlmHalf)v.z, (GlmHalf)v.w);
         
         /// <summary>
         /// Explicitly converts this to a dvec4.

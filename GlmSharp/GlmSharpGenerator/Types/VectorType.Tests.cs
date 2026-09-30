@@ -18,8 +18,8 @@ namespace GlmSharpGenerator.Types
                     yield return "{";
                     var vals = BaseType.RandomSmallVals(1);
                     yield return $"var v = {Construct(this, vals)};".Indent();
-                    foreach (var field in Fields)
-                        yield return string.Format("Assert.AreEqual({1}, v.{0});", field, vals[0]).Indent();
+                    foreach (var @field in fields)
+                        yield return string.Format("Assert.AreEqual({1}, v.{0});", @field, vals[0]).Indent();
                     yield return "}";
                 }
                 {
@@ -27,8 +27,8 @@ namespace GlmSharpGenerator.Types
                     var vals = BaseType.RandomSmallVals(Components);
                     yield return $"var v = {Construct(this, vals)};".Indent();
                     var it = vals.GetEnumerator();
-                    foreach (var field in Fields)
-                        yield return string.Format("Assert.AreEqual({1}, v.{0});", field, it.MoveNext() ? it.Current : ZeroValue).Indent();
+                    foreach (var @field in fields)
+                        yield return string.Format("Assert.AreEqual({1}, v.{0});", @field, it.MoveNext() ? it.Current : ZeroValue).Indent();
                     yield return "}";
                 }
                 for (var comps = 2; comps <= 4; ++comps)
@@ -37,8 +37,8 @@ namespace GlmSharpGenerator.Types
                     var vals = BaseType.RandomSmallVals(comps);
                     yield return $"var v = {Construct(this, Construct(new VectorType(BaseType, comps), vals))};".Indent();
                     var it = vals.GetEnumerator();
-                    foreach (var field in Fields)
-                        yield return string.Format("Assert.AreEqual({1}, v.{0});", field, it.MoveNext() ? it.Current : ZeroValue).Indent();
+                    foreach (var @field in fields)
+                        yield return string.Format("Assert.AreEqual({1}, v.{0});", @field, it.MoveNext() ? it.Current : ZeroValue).Indent();
                     yield return "}";
                 }
             }
@@ -89,27 +89,27 @@ namespace GlmSharpGenerator.Types
         {
             get
             {
-                foreach (var f in Fields)
+                foreach (var f in fields)
                     yield return $"Assert.AreEqual({ZeroValue}, {NameThat}.Zero.{f});";
 
                 if (!string.IsNullOrEmpty(OneValue))
                 {
                     yield return "";
-                    foreach (var f in Fields)
+                    foreach (var f in fields)
                         yield return $"Assert.AreEqual({OneValue}, {NameThat}.Ones.{f});";
 
-                    foreach (var uf in Fields)
+                    foreach (var uf in fields)
                     {
                         yield return "";
-                        foreach (var f in Fields)
-                            yield return $"Assert.AreEqual({(f == uf ? OneValue : ZeroValue)}, {NameThat}.Unit{uf.ToUpper()}.{f});";
+                        foreach (var f in fields)
+                            yield return $"Assert.AreEqual({(f == uf ? OneValue : ZeroValue)}, {NameThat}.Unit{uf}.{f});";
                     }
                 }
 
                 foreach (var constant in BaseType.TypeConstants)
                 {
                     yield return "";
-                    foreach (var f in Fields)
+                    foreach (var f in fields)
                         yield return string.Format("Assert.AreEqual({0}.{2}, {1}.{2}.{3});", BaseTypeName, NameThat, constant, f);
                 }
             }

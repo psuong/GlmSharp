@@ -1,10 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
-using GlmSharp.Swizzle;
 
 // ReSharper disable InconsistentNaming
 
@@ -24,12 +19,12 @@ namespace GlmSharp.Swizzle
         /// <summary>
         /// x-component
         /// </summary>
-        internal readonly Half x;
+        internal readonly GlmHalf x;
         
         /// <summary>
         /// y-component
         /// </summary>
-        internal readonly Half y;
+        internal readonly GlmHalf y;
 
         #endregion
 
@@ -39,7 +34,7 @@ namespace GlmSharp.Swizzle
         /// <summary>
         /// Constructor for swizzle_hvec2.
         /// </summary>
-        internal swizzle_hvec2(Half x, Half y)
+        internal swizzle_hvec2(GlmHalf x, GlmHalf y)
         {
             this.x = x;
             this.y = y;

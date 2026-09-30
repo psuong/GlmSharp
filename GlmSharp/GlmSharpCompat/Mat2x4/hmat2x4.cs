@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
-using GlmSharp.Swizzle;
 
 // ReSharper disable InconsistentNaming
 
@@ -16,7 +13,7 @@ namespace GlmSharp
     /// </summary>
     [Serializable]
     [StructLayout(LayoutKind.Sequential)]
-    public struct hmat2x4 : IEnumerable<Half>, IEquatable<hmat2x4>
+    public struct hmat2x4 : IEnumerable<GlmHalf>, IEquatable<hmat2x4>
     {
 
         #region Fields
@@ -24,42 +21,42 @@ namespace GlmSharp
         /// <summary>
         /// Column 0, Rows 0
         /// </summary>
-        public Half m00;
+        public GlmHalf m00;
         
         /// <summary>
         /// Column 0, Rows 1
         /// </summary>
-        public Half m01;
+        public GlmHalf m01;
         
         /// <summary>
         /// Column 0, Rows 2
         /// </summary>
-        public Half m02;
+        public GlmHalf m02;
         
         /// <summary>
         /// Column 0, Rows 3
         /// </summary>
-        public Half m03;
+        public GlmHalf m03;
         
         /// <summary>
         /// Column 1, Rows 0
         /// </summary>
-        public Half m10;
+        public GlmHalf m10;
         
         /// <summary>
         /// Column 1, Rows 1
         /// </summary>
-        public Half m11;
+        public GlmHalf m11;
         
         /// <summary>
         /// Column 1, Rows 2
         /// </summary>
-        public Half m12;
+        public GlmHalf m12;
         
         /// <summary>
         /// Column 1, Rows 3
         /// </summary>
-        public Half m13;
+        public GlmHalf m13;
 
         #endregion
 
@@ -69,7 +66,7 @@ namespace GlmSharp
         /// <summary>
         /// Component-wise constructor
         /// </summary>
-        public hmat2x4(Half m00, Half m01, Half m02, Half m03, Half m10, Half m11, Half m12, Half m13)
+        public hmat2x4(GlmHalf m00, GlmHalf m01, GlmHalf m02, GlmHalf m03, GlmHalf m10, GlmHalf m11, GlmHalf m12, GlmHalf m13)
         {
             this.m00 = m00;
             this.m01 = m01;
@@ -88,12 +85,12 @@ namespace GlmSharp
         {
             this.m00 = m.m00;
             this.m01 = m.m01;
-            this.m02 = Half.Zero;
-            this.m03 = Half.Zero;
+            this.m02 = GlmHalf.Zero;
+            this.m03 = GlmHalf.Zero;
             this.m10 = m.m10;
             this.m11 = m.m11;
-            this.m12 = Half.Zero;
-            this.m13 = Half.Zero;
+            this.m12 = GlmHalf.Zero;
+            this.m13 = GlmHalf.Zero;
         }
         
         /// <summary>
@@ -103,12 +100,12 @@ namespace GlmSharp
         {
             this.m00 = m.m00;
             this.m01 = m.m01;
-            this.m02 = Half.Zero;
-            this.m03 = Half.Zero;
+            this.m02 = GlmHalf.Zero;
+            this.m03 = GlmHalf.Zero;
             this.m10 = m.m10;
             this.m11 = m.m11;
-            this.m12 = Half.Zero;
-            this.m13 = Half.Zero;
+            this.m12 = GlmHalf.Zero;
+            this.m13 = GlmHalf.Zero;
         }
         
         /// <summary>
@@ -118,12 +115,12 @@ namespace GlmSharp
         {
             this.m00 = m.m00;
             this.m01 = m.m01;
-            this.m02 = Half.Zero;
-            this.m03 = Half.Zero;
+            this.m02 = GlmHalf.Zero;
+            this.m03 = GlmHalf.Zero;
             this.m10 = m.m10;
             this.m11 = m.m11;
-            this.m12 = Half.Zero;
-            this.m13 = Half.Zero;
+            this.m12 = GlmHalf.Zero;
+            this.m13 = GlmHalf.Zero;
         }
         
         /// <summary>
@@ -134,11 +131,11 @@ namespace GlmSharp
             this.m00 = m.m00;
             this.m01 = m.m01;
             this.m02 = m.m02;
-            this.m03 = Half.Zero;
+            this.m03 = GlmHalf.Zero;
             this.m10 = m.m10;
             this.m11 = m.m11;
             this.m12 = m.m12;
-            this.m13 = Half.Zero;
+            this.m13 = GlmHalf.Zero;
         }
         
         /// <summary>
@@ -149,11 +146,11 @@ namespace GlmSharp
             this.m00 = m.m00;
             this.m01 = m.m01;
             this.m02 = m.m02;
-            this.m03 = Half.Zero;
+            this.m03 = GlmHalf.Zero;
             this.m10 = m.m10;
             this.m11 = m.m11;
             this.m12 = m.m12;
-            this.m13 = Half.Zero;
+            this.m13 = GlmHalf.Zero;
         }
         
         /// <summary>
@@ -164,11 +161,11 @@ namespace GlmSharp
             this.m00 = m.m00;
             this.m01 = m.m01;
             this.m02 = m.m02;
-            this.m03 = Half.Zero;
+            this.m03 = GlmHalf.Zero;
             this.m10 = m.m10;
             this.m11 = m.m11;
             this.m12 = m.m12;
-            this.m13 = Half.Zero;
+            this.m13 = GlmHalf.Zero;
         }
         
         /// <summary>
@@ -223,12 +220,12 @@ namespace GlmSharp
         {
             this.m00 = c0.x;
             this.m01 = c0.y;
-            this.m02 = Half.Zero;
-            this.m03 = Half.Zero;
+            this.m02 = GlmHalf.Zero;
+            this.m03 = GlmHalf.Zero;
             this.m10 = c1.x;
             this.m11 = c1.y;
-            this.m12 = Half.Zero;
-            this.m13 = Half.Zero;
+            this.m12 = GlmHalf.Zero;
+            this.m13 = GlmHalf.Zero;
         }
         
         /// <summary>
@@ -239,11 +236,11 @@ namespace GlmSharp
             this.m00 = c0.x;
             this.m01 = c0.y;
             this.m02 = c0.z;
-            this.m03 = Half.Zero;
+            this.m03 = GlmHalf.Zero;
             this.m10 = c1.x;
             this.m11 = c1.y;
             this.m12 = c1.z;
-            this.m13 = Half.Zero;
+            this.m13 = GlmHalf.Zero;
         }
         
         /// <summary>
@@ -269,12 +266,12 @@ namespace GlmSharp
         /// <summary>
         /// Creates a 2D array with all values (address: Values[x, y])
         /// </summary>
-        public Half[,] Values => new[,] { { m00, m01, m02, m03 }, { m10, m11, m12, m13 } };
+        public GlmHalf[,] Values => new[,] { { m00, m01, m02, m03 }, { m10, m11, m12, m13 } };
         
         /// <summary>
         /// Creates a 1D array with all values (internal order)
         /// </summary>
-        public Half[] Values1D => new[] { m00, m01, m02, m03, m10, m11, m12, m13 };
+        public GlmHalf[] Values1D => new[] { m00, m01, m02, m03, m10, m11, m12, m13 };
         
         /// <summary>
         /// Gets or sets the column nr 0
@@ -384,77 +381,77 @@ namespace GlmSharp
         /// <summary>
         /// Predefined all-zero matrix
         /// </summary>
-        public static hmat2x4 Zero { get; } = new hmat2x4(Half.Zero, Half.Zero, Half.Zero, Half.Zero, Half.Zero, Half.Zero, Half.Zero, Half.Zero);
+        public static hmat2x4 Zero { get; } = new hmat2x4(GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Predefined all-ones matrix
         /// </summary>
-        public static hmat2x4 Ones { get; } = new hmat2x4(Half.One, Half.One, Half.One, Half.One, Half.One, Half.One, Half.One, Half.One);
+        public static hmat2x4 Ones { get; } = new hmat2x4(GlmHalf.One, GlmHalf.One, GlmHalf.One, GlmHalf.One, GlmHalf.One, GlmHalf.One, GlmHalf.One, GlmHalf.One);
         
         /// <summary>
         /// Predefined identity matrix
         /// </summary>
-        public static hmat2x4 Identity { get; } = new hmat2x4(Half.One, Half.Zero, Half.Zero, Half.Zero, Half.Zero, Half.One, Half.Zero, Half.Zero);
+        public static hmat2x4 Identity { get; } = new hmat2x4(GlmHalf.One, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.One, GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Predefined all-MaxValue matrix
         /// </summary>
-        public static hmat2x4 AllMaxValue { get; } = new hmat2x4(Half.MaxValue, Half.MaxValue, Half.MaxValue, Half.MaxValue, Half.MaxValue, Half.MaxValue, Half.MaxValue, Half.MaxValue);
+        public static hmat2x4 AllMaxValue { get; } = new hmat2x4(GlmHalf.MaxValue, GlmHalf.MaxValue, GlmHalf.MaxValue, GlmHalf.MaxValue, GlmHalf.MaxValue, GlmHalf.MaxValue, GlmHalf.MaxValue, GlmHalf.MaxValue);
         
         /// <summary>
         /// Predefined diagonal-MaxValue matrix
         /// </summary>
-        public static hmat2x4 DiagonalMaxValue { get; } = new hmat2x4(Half.MaxValue, Half.Zero, Half.Zero, Half.Zero, Half.Zero, Half.MaxValue, Half.Zero, Half.Zero);
+        public static hmat2x4 DiagonalMaxValue { get; } = new hmat2x4(GlmHalf.MaxValue, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.MaxValue, GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Predefined all-MinValue matrix
         /// </summary>
-        public static hmat2x4 AllMinValue { get; } = new hmat2x4(Half.MinValue, Half.MinValue, Half.MinValue, Half.MinValue, Half.MinValue, Half.MinValue, Half.MinValue, Half.MinValue);
+        public static hmat2x4 AllMinValue { get; } = new hmat2x4(GlmHalf.MinValue, GlmHalf.MinValue, GlmHalf.MinValue, GlmHalf.MinValue, GlmHalf.MinValue, GlmHalf.MinValue, GlmHalf.MinValue, GlmHalf.MinValue);
         
         /// <summary>
         /// Predefined diagonal-MinValue matrix
         /// </summary>
-        public static hmat2x4 DiagonalMinValue { get; } = new hmat2x4(Half.MinValue, Half.Zero, Half.Zero, Half.Zero, Half.Zero, Half.MinValue, Half.Zero, Half.Zero);
+        public static hmat2x4 DiagonalMinValue { get; } = new hmat2x4(GlmHalf.MinValue, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.MinValue, GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Predefined all-Epsilon matrix
         /// </summary>
-        public static hmat2x4 AllEpsilon { get; } = new hmat2x4(Half.Epsilon, Half.Epsilon, Half.Epsilon, Half.Epsilon, Half.Epsilon, Half.Epsilon, Half.Epsilon, Half.Epsilon);
+        public static hmat2x4 AllEpsilon { get; } = new hmat2x4(GlmHalf.Epsilon, GlmHalf.Epsilon, GlmHalf.Epsilon, GlmHalf.Epsilon, GlmHalf.Epsilon, GlmHalf.Epsilon, GlmHalf.Epsilon, GlmHalf.Epsilon);
         
         /// <summary>
         /// Predefined diagonal-Epsilon matrix
         /// </summary>
-        public static hmat2x4 DiagonalEpsilon { get; } = new hmat2x4(Half.Epsilon, Half.Zero, Half.Zero, Half.Zero, Half.Zero, Half.Epsilon, Half.Zero, Half.Zero);
+        public static hmat2x4 DiagonalEpsilon { get; } = new hmat2x4(GlmHalf.Epsilon, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Epsilon, GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Predefined all-NaN matrix
         /// </summary>
-        public static hmat2x4 AllNaN { get; } = new hmat2x4(Half.NaN, Half.NaN, Half.NaN, Half.NaN, Half.NaN, Half.NaN, Half.NaN, Half.NaN);
+        public static hmat2x4 AllNaN { get; } = new hmat2x4(GlmHalf.NaN, GlmHalf.NaN, GlmHalf.NaN, GlmHalf.NaN, GlmHalf.NaN, GlmHalf.NaN, GlmHalf.NaN, GlmHalf.NaN);
         
         /// <summary>
         /// Predefined diagonal-NaN matrix
         /// </summary>
-        public static hmat2x4 DiagonalNaN { get; } = new hmat2x4(Half.NaN, Half.Zero, Half.Zero, Half.Zero, Half.Zero, Half.NaN, Half.Zero, Half.Zero);
+        public static hmat2x4 DiagonalNaN { get; } = new hmat2x4(GlmHalf.NaN, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.NaN, GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Predefined all-NegativeInfinity matrix
         /// </summary>
-        public static hmat2x4 AllNegativeInfinity { get; } = new hmat2x4(Half.NegativeInfinity, Half.NegativeInfinity, Half.NegativeInfinity, Half.NegativeInfinity, Half.NegativeInfinity, Half.NegativeInfinity, Half.NegativeInfinity, Half.NegativeInfinity);
+        public static hmat2x4 AllNegativeInfinity { get; } = new hmat2x4(GlmHalf.NegativeInfinity, GlmHalf.NegativeInfinity, GlmHalf.NegativeInfinity, GlmHalf.NegativeInfinity, GlmHalf.NegativeInfinity, GlmHalf.NegativeInfinity, GlmHalf.NegativeInfinity, GlmHalf.NegativeInfinity);
         
         /// <summary>
         /// Predefined diagonal-NegativeInfinity matrix
         /// </summary>
-        public static hmat2x4 DiagonalNegativeInfinity { get; } = new hmat2x4(Half.NegativeInfinity, Half.Zero, Half.Zero, Half.Zero, Half.Zero, Half.NegativeInfinity, Half.Zero, Half.Zero);
+        public static hmat2x4 DiagonalNegativeInfinity { get; } = new hmat2x4(GlmHalf.NegativeInfinity, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.NegativeInfinity, GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Predefined all-PositiveInfinity matrix
         /// </summary>
-        public static hmat2x4 AllPositiveInfinity { get; } = new hmat2x4(Half.PositiveInfinity, Half.PositiveInfinity, Half.PositiveInfinity, Half.PositiveInfinity, Half.PositiveInfinity, Half.PositiveInfinity, Half.PositiveInfinity, Half.PositiveInfinity);
+        public static hmat2x4 AllPositiveInfinity { get; } = new hmat2x4(GlmHalf.PositiveInfinity, GlmHalf.PositiveInfinity, GlmHalf.PositiveInfinity, GlmHalf.PositiveInfinity, GlmHalf.PositiveInfinity, GlmHalf.PositiveInfinity, GlmHalf.PositiveInfinity, GlmHalf.PositiveInfinity);
         
         /// <summary>
         /// Predefined diagonal-PositiveInfinity matrix
         /// </summary>
-        public static hmat2x4 DiagonalPositiveInfinity { get; } = new hmat2x4(Half.PositiveInfinity, Half.Zero, Half.Zero, Half.Zero, Half.Zero, Half.PositiveInfinity, Half.Zero, Half.Zero);
+        public static hmat2x4 DiagonalPositiveInfinity { get; } = new hmat2x4(GlmHalf.PositiveInfinity, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.PositiveInfinity, GlmHalf.Zero, GlmHalf.Zero);
 
         #endregion
 
@@ -464,7 +461,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns an enumerator that iterates through all fields.
         /// </summary>
-        public IEnumerator<Half> GetEnumerator()
+        public IEnumerator<GlmHalf> GetEnumerator()
         {
             yield return m00;
             yield return m01;
@@ -492,7 +489,7 @@ namespace GlmSharp
         /// <summary>
         /// Gets/Sets a specific indexed component (a bit slower than direct access).
         /// </summary>
-        public Half this[int fieldIndex]
+        public GlmHalf this[int fieldIndex]
         {
             get
             {
@@ -529,7 +526,7 @@ namespace GlmSharp
         /// <summary>
         /// Gets/Sets a specific 2D-indexed component (a bit slower than direct access).
         /// </summary>
-        public Half this[int col, int row]
+        public GlmHalf this[int col, int row]
         {
             get
             {
@@ -584,12 +581,12 @@ namespace GlmSharp
         /// <summary>
         /// Returns the minimal component of this matrix.
         /// </summary>
-        public Half MinElement => Half.Min(Half.Min(Half.Min(Half.Min(Half.Min(Half.Min(Half.Min(m00, m01), m02), m03), m10), m11), m12), m13);
+        public GlmHalf MinElement => GlmHalf.Min(GlmHalf.Min(GlmHalf.Min(GlmHalf.Min(GlmHalf.Min(GlmHalf.Min(GlmHalf.Min(m00, m01), m02), m03), m10), m11), m12), m13);
         
         /// <summary>
         /// Returns the maximal component of this matrix.
         /// </summary>
-        public Half MaxElement => Half.Max(Half.Max(Half.Max(Half.Max(Half.Max(Half.Max(Half.Max(m00, m01), m02), m03), m10), m11), m12), m13);
+        public GlmHalf MaxElement => GlmHalf.Max(GlmHalf.Max(GlmHalf.Max(GlmHalf.Max(GlmHalf.Max(GlmHalf.Max(GlmHalf.Max(m00, m01), m02), m03), m10), m11), m12), m13);
         
         /// <summary>
         /// Returns the euclidean length of this matrix.
@@ -604,7 +601,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns the sum of all fields.
         /// </summary>
-        public Half Sum => (((m00 + m01) + (m02 + m03)) + ((m10 + m11) + (m12 + m13)));
+        public GlmHalf Sum => (((m00 + m01) + (m02 + m03)) + ((m10 + m11) + (m12 + m13)));
         
         /// <summary>
         /// Returns the euclidean norm of this matrix.
@@ -614,7 +611,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns the one-norm of this matrix.
         /// </summary>
-        public float Norm1 => (((Half.Abs(m00) + Half.Abs(m01)) + (Half.Abs(m02) + Half.Abs(m03))) + ((Half.Abs(m10) + Half.Abs(m11)) + (Half.Abs(m12) + Half.Abs(m13))));
+        public float Norm1 => (((GlmHalf.Abs(m00) + GlmHalf.Abs(m01)) + (GlmHalf.Abs(m02) + GlmHalf.Abs(m03))) + ((GlmHalf.Abs(m10) + GlmHalf.Abs(m11)) + (GlmHalf.Abs(m12) + GlmHalf.Abs(m13))));
         
         /// <summary>
         /// Returns the two-norm of this matrix.
@@ -624,12 +621,12 @@ namespace GlmSharp
         /// <summary>
         /// Returns the max-norm of this matrix.
         /// </summary>
-        public Half NormMax => Half.Max(Half.Max(Half.Max(Half.Max(Half.Max(Half.Max(Half.Max(Half.Abs(m00), Half.Abs(m01)), Half.Abs(m02)), Half.Abs(m03)), Half.Abs(m10)), Half.Abs(m11)), Half.Abs(m12)), Half.Abs(m13));
+        public GlmHalf NormMax => GlmHalf.Max(GlmHalf.Max(GlmHalf.Max(GlmHalf.Max(GlmHalf.Max(GlmHalf.Max(GlmHalf.Max(GlmHalf.Abs(m00), GlmHalf.Abs(m01)), GlmHalf.Abs(m02)), GlmHalf.Abs(m03)), GlmHalf.Abs(m10)), GlmHalf.Abs(m11)), GlmHalf.Abs(m12)), GlmHalf.Abs(m13));
         
         /// <summary>
         /// Returns the p-norm of this matrix.
         /// </summary>
-        public double NormP(double p) => Math.Pow((((Math.Pow((double)Half.Abs(m00), p) + Math.Pow((double)Half.Abs(m01), p)) + (Math.Pow((double)Half.Abs(m02), p) + Math.Pow((double)Half.Abs(m03), p))) + ((Math.Pow((double)Half.Abs(m10), p) + Math.Pow((double)Half.Abs(m11), p)) + (Math.Pow((double)Half.Abs(m12), p) + Math.Pow((double)Half.Abs(m13), p)))), 1 / p);
+        public double NormP(double p) => Math.Pow((((Math.Pow((double)GlmHalf.Abs(m00), p) + Math.Pow((double)GlmHalf.Abs(m01), p)) + (Math.Pow((double)GlmHalf.Abs(m02), p) + Math.Pow((double)GlmHalf.Abs(m03), p))) + ((Math.Pow((double)GlmHalf.Abs(m10), p) + Math.Pow((double)GlmHalf.Abs(m11), p)) + (Math.Pow((double)GlmHalf.Abs(m12), p) + Math.Pow((double)GlmHalf.Abs(m13), p)))), 1 / p);
         
         /// <summary>
         /// Executes a matrix-matrix-multiplication hmat2x4 * hmat2 -> hmat2x4.
@@ -679,12 +676,12 @@ namespace GlmSharp
         /// <summary>
         /// Executes a component-wise + (add) with a scalar.
         /// </summary>
-        public static hmat2x4 operator+(hmat2x4 lhs, Half rhs) => new hmat2x4(lhs.m00 + rhs, lhs.m01 + rhs, lhs.m02 + rhs, lhs.m03 + rhs, lhs.m10 + rhs, lhs.m11 + rhs, lhs.m12 + rhs, lhs.m13 + rhs);
+        public static hmat2x4 operator+(hmat2x4 lhs, GlmHalf rhs) => new hmat2x4(lhs.m00 + rhs, lhs.m01 + rhs, lhs.m02 + rhs, lhs.m03 + rhs, lhs.m10 + rhs, lhs.m11 + rhs, lhs.m12 + rhs, lhs.m13 + rhs);
         
         /// <summary>
         /// Executes a component-wise + (add) with a scalar.
         /// </summary>
-        public static hmat2x4 operator+(Half lhs, hmat2x4 rhs) => new hmat2x4(lhs + rhs.m00, lhs + rhs.m01, lhs + rhs.m02, lhs + rhs.m03, lhs + rhs.m10, lhs + rhs.m11, lhs + rhs.m12, lhs + rhs.m13);
+        public static hmat2x4 operator+(GlmHalf lhs, hmat2x4 rhs) => new hmat2x4(lhs + rhs.m00, lhs + rhs.m01, lhs + rhs.m02, lhs + rhs.m03, lhs + rhs.m10, lhs + rhs.m11, lhs + rhs.m12, lhs + rhs.m13);
         
         /// <summary>
         /// Executes a component-wise - (subtract).
@@ -694,32 +691,32 @@ namespace GlmSharp
         /// <summary>
         /// Executes a component-wise - (subtract) with a scalar.
         /// </summary>
-        public static hmat2x4 operator-(hmat2x4 lhs, Half rhs) => new hmat2x4(lhs.m00 - rhs, lhs.m01 - rhs, lhs.m02 - rhs, lhs.m03 - rhs, lhs.m10 - rhs, lhs.m11 - rhs, lhs.m12 - rhs, lhs.m13 - rhs);
+        public static hmat2x4 operator-(hmat2x4 lhs, GlmHalf rhs) => new hmat2x4(lhs.m00 - rhs, lhs.m01 - rhs, lhs.m02 - rhs, lhs.m03 - rhs, lhs.m10 - rhs, lhs.m11 - rhs, lhs.m12 - rhs, lhs.m13 - rhs);
         
         /// <summary>
         /// Executes a component-wise - (subtract) with a scalar.
         /// </summary>
-        public static hmat2x4 operator-(Half lhs, hmat2x4 rhs) => new hmat2x4(lhs - rhs.m00, lhs - rhs.m01, lhs - rhs.m02, lhs - rhs.m03, lhs - rhs.m10, lhs - rhs.m11, lhs - rhs.m12, lhs - rhs.m13);
+        public static hmat2x4 operator-(GlmHalf lhs, hmat2x4 rhs) => new hmat2x4(lhs - rhs.m00, lhs - rhs.m01, lhs - rhs.m02, lhs - rhs.m03, lhs - rhs.m10, lhs - rhs.m11, lhs - rhs.m12, lhs - rhs.m13);
         
         /// <summary>
         /// Executes a component-wise / (divide) with a scalar.
         /// </summary>
-        public static hmat2x4 operator/(hmat2x4 lhs, Half rhs) => new hmat2x4(lhs.m00 / rhs, lhs.m01 / rhs, lhs.m02 / rhs, lhs.m03 / rhs, lhs.m10 / rhs, lhs.m11 / rhs, lhs.m12 / rhs, lhs.m13 / rhs);
+        public static hmat2x4 operator/(hmat2x4 lhs, GlmHalf rhs) => new hmat2x4(lhs.m00 / rhs, lhs.m01 / rhs, lhs.m02 / rhs, lhs.m03 / rhs, lhs.m10 / rhs, lhs.m11 / rhs, lhs.m12 / rhs, lhs.m13 / rhs);
         
         /// <summary>
         /// Executes a component-wise / (divide) with a scalar.
         /// </summary>
-        public static hmat2x4 operator/(Half lhs, hmat2x4 rhs) => new hmat2x4(lhs / rhs.m00, lhs / rhs.m01, lhs / rhs.m02, lhs / rhs.m03, lhs / rhs.m10, lhs / rhs.m11, lhs / rhs.m12, lhs / rhs.m13);
+        public static hmat2x4 operator/(GlmHalf lhs, hmat2x4 rhs) => new hmat2x4(lhs / rhs.m00, lhs / rhs.m01, lhs / rhs.m02, lhs / rhs.m03, lhs / rhs.m10, lhs / rhs.m11, lhs / rhs.m12, lhs / rhs.m13);
         
         /// <summary>
         /// Executes a component-wise * (multiply) with a scalar.
         /// </summary>
-        public static hmat2x4 operator*(hmat2x4 lhs, Half rhs) => new hmat2x4(lhs.m00 * rhs, lhs.m01 * rhs, lhs.m02 * rhs, lhs.m03 * rhs, lhs.m10 * rhs, lhs.m11 * rhs, lhs.m12 * rhs, lhs.m13 * rhs);
+        public static hmat2x4 operator*(hmat2x4 lhs, GlmHalf rhs) => new hmat2x4(lhs.m00 * rhs, lhs.m01 * rhs, lhs.m02 * rhs, lhs.m03 * rhs, lhs.m10 * rhs, lhs.m11 * rhs, lhs.m12 * rhs, lhs.m13 * rhs);
         
         /// <summary>
         /// Executes a component-wise * (multiply) with a scalar.
         /// </summary>
-        public static hmat2x4 operator*(Half lhs, hmat2x4 rhs) => new hmat2x4(lhs * rhs.m00, lhs * rhs.m01, lhs * rhs.m02, lhs * rhs.m03, lhs * rhs.m10, lhs * rhs.m11, lhs * rhs.m12, lhs * rhs.m13);
+        public static hmat2x4 operator*(GlmHalf lhs, hmat2x4 rhs) => new hmat2x4(lhs * rhs.m00, lhs * rhs.m01, lhs * rhs.m02, lhs * rhs.m03, lhs * rhs.m10, lhs * rhs.m11, lhs * rhs.m12, lhs * rhs.m13);
         
         /// <summary>
         /// Executes a component-wise lesser-than comparison.
@@ -729,12 +726,12 @@ namespace GlmSharp
         /// <summary>
         /// Executes a component-wise lesser-than comparison with a scalar.
         /// </summary>
-        public static bmat2x4 operator<(hmat2x4 lhs, Half rhs) => new bmat2x4(lhs.m00 < rhs, lhs.m01 < rhs, lhs.m02 < rhs, lhs.m03 < rhs, lhs.m10 < rhs, lhs.m11 < rhs, lhs.m12 < rhs, lhs.m13 < rhs);
+        public static bmat2x4 operator<(hmat2x4 lhs, GlmHalf rhs) => new bmat2x4(lhs.m00 < rhs, lhs.m01 < rhs, lhs.m02 < rhs, lhs.m03 < rhs, lhs.m10 < rhs, lhs.m11 < rhs, lhs.m12 < rhs, lhs.m13 < rhs);
         
         /// <summary>
         /// Executes a component-wise lesser-than comparison with a scalar.
         /// </summary>
-        public static bmat2x4 operator<(Half lhs, hmat2x4 rhs) => new bmat2x4(lhs < rhs.m00, lhs < rhs.m01, lhs < rhs.m02, lhs < rhs.m03, lhs < rhs.m10, lhs < rhs.m11, lhs < rhs.m12, lhs < rhs.m13);
+        public static bmat2x4 operator<(GlmHalf lhs, hmat2x4 rhs) => new bmat2x4(lhs < rhs.m00, lhs < rhs.m01, lhs < rhs.m02, lhs < rhs.m03, lhs < rhs.m10, lhs < rhs.m11, lhs < rhs.m12, lhs < rhs.m13);
         
         /// <summary>
         /// Executes a component-wise lesser-or-equal comparison.
@@ -744,12 +741,12 @@ namespace GlmSharp
         /// <summary>
         /// Executes a component-wise lesser-or-equal comparison with a scalar.
         /// </summary>
-        public static bmat2x4 operator<=(hmat2x4 lhs, Half rhs) => new bmat2x4(lhs.m00 <= rhs, lhs.m01 <= rhs, lhs.m02 <= rhs, lhs.m03 <= rhs, lhs.m10 <= rhs, lhs.m11 <= rhs, lhs.m12 <= rhs, lhs.m13 <= rhs);
+        public static bmat2x4 operator<=(hmat2x4 lhs, GlmHalf rhs) => new bmat2x4(lhs.m00 <= rhs, lhs.m01 <= rhs, lhs.m02 <= rhs, lhs.m03 <= rhs, lhs.m10 <= rhs, lhs.m11 <= rhs, lhs.m12 <= rhs, lhs.m13 <= rhs);
         
         /// <summary>
         /// Executes a component-wise lesser-or-equal comparison with a scalar.
         /// </summary>
-        public static bmat2x4 operator<=(Half lhs, hmat2x4 rhs) => new bmat2x4(lhs <= rhs.m00, lhs <= rhs.m01, lhs <= rhs.m02, lhs <= rhs.m03, lhs <= rhs.m10, lhs <= rhs.m11, lhs <= rhs.m12, lhs <= rhs.m13);
+        public static bmat2x4 operator<=(GlmHalf lhs, hmat2x4 rhs) => new bmat2x4(lhs <= rhs.m00, lhs <= rhs.m01, lhs <= rhs.m02, lhs <= rhs.m03, lhs <= rhs.m10, lhs <= rhs.m11, lhs <= rhs.m12, lhs <= rhs.m13);
         
         /// <summary>
         /// Executes a component-wise greater-than comparison.
@@ -759,12 +756,12 @@ namespace GlmSharp
         /// <summary>
         /// Executes a component-wise greater-than comparison with a scalar.
         /// </summary>
-        public static bmat2x4 operator>(hmat2x4 lhs, Half rhs) => new bmat2x4(lhs.m00 > rhs, lhs.m01 > rhs, lhs.m02 > rhs, lhs.m03 > rhs, lhs.m10 > rhs, lhs.m11 > rhs, lhs.m12 > rhs, lhs.m13 > rhs);
+        public static bmat2x4 operator>(hmat2x4 lhs, GlmHalf rhs) => new bmat2x4(lhs.m00 > rhs, lhs.m01 > rhs, lhs.m02 > rhs, lhs.m03 > rhs, lhs.m10 > rhs, lhs.m11 > rhs, lhs.m12 > rhs, lhs.m13 > rhs);
         
         /// <summary>
         /// Executes a component-wise greater-than comparison with a scalar.
         /// </summary>
-        public static bmat2x4 operator>(Half lhs, hmat2x4 rhs) => new bmat2x4(lhs > rhs.m00, lhs > rhs.m01, lhs > rhs.m02, lhs > rhs.m03, lhs > rhs.m10, lhs > rhs.m11, lhs > rhs.m12, lhs > rhs.m13);
+        public static bmat2x4 operator>(GlmHalf lhs, hmat2x4 rhs) => new bmat2x4(lhs > rhs.m00, lhs > rhs.m01, lhs > rhs.m02, lhs > rhs.m03, lhs > rhs.m10, lhs > rhs.m11, lhs > rhs.m12, lhs > rhs.m13);
         
         /// <summary>
         /// Executes a component-wise greater-or-equal comparison.
@@ -774,11 +771,11 @@ namespace GlmSharp
         /// <summary>
         /// Executes a component-wise greater-or-equal comparison with a scalar.
         /// </summary>
-        public static bmat2x4 operator>=(hmat2x4 lhs, Half rhs) => new bmat2x4(lhs.m00 >= rhs, lhs.m01 >= rhs, lhs.m02 >= rhs, lhs.m03 >= rhs, lhs.m10 >= rhs, lhs.m11 >= rhs, lhs.m12 >= rhs, lhs.m13 >= rhs);
+        public static bmat2x4 operator>=(hmat2x4 lhs, GlmHalf rhs) => new bmat2x4(lhs.m00 >= rhs, lhs.m01 >= rhs, lhs.m02 >= rhs, lhs.m03 >= rhs, lhs.m10 >= rhs, lhs.m11 >= rhs, lhs.m12 >= rhs, lhs.m13 >= rhs);
         
         /// <summary>
         /// Executes a component-wise greater-or-equal comparison with a scalar.
         /// </summary>
-        public static bmat2x4 operator>=(Half lhs, hmat2x4 rhs) => new bmat2x4(lhs >= rhs.m00, lhs >= rhs.m01, lhs >= rhs.m02, lhs >= rhs.m03, lhs >= rhs.m10, lhs >= rhs.m11, lhs >= rhs.m12, lhs >= rhs.m13);
+        public static bmat2x4 operator>=(GlmHalf lhs, hmat2x4 rhs) => new bmat2x4(lhs >= rhs.m00, lhs >= rhs.m01, lhs >= rhs.m02, lhs >= rhs.m03, lhs >= rhs.m10, lhs >= rhs.m11, lhs >= rhs.m12, lhs >= rhs.m13);
     }
 }

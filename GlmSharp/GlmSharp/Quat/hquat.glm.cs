@@ -21,12 +21,12 @@ namespace GlmSharp
         /// <summary>
         /// Returns an array with all values
         /// </summary>
-        public static Half[] Values(hquat q) => q.Values;
+        public static GlmHalf[] Values(hquat q) => q.Values;
         
         /// <summary>
         /// Returns an enumerator that iterates through all components.
         /// </summary>
-        public static IEnumerator<Half> GetEnumerator(hquat q) => q.GetEnumerator();
+        public static IEnumerator<GlmHalf> GetEnumerator(hquat q) => q.GetEnumerator();
         
         /// <summary>
         /// Returns a string representation of this quaternion using ', ' as a seperator.
@@ -131,7 +131,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns the inner product (dot product, scalar product) of the two quaternions.
         /// </summary>
-        public static Half Dot(hquat lhs, hquat rhs) => hquat.Dot(lhs, rhs);
+        public static GlmHalf Dot(hquat lhs, hquat rhs) => hquat.Dot(lhs, rhs);
         
         /// <summary>
         /// Returns the euclidean length of this quaternion.
@@ -141,7 +141,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns the squared euclidean length of this quaternion.
         /// </summary>
-        public static Half LengthSqr(hquat q) => q.LengthSqr;
+        public static GlmHalf LengthSqr(hquat q) => q.LengthSqr;
         
         /// <summary>
         /// Returns a copy of this quaternion with length one (undefined if this has zero length).
@@ -186,7 +186,7 @@ namespace GlmSharp
         /// <summary>
         /// Rotates this quaternion from an axis and an angle (in radians).
         /// </summary>
-        public static hquat Rotated(hquat q, Half angle, hvec3 v) => q.Rotated(angle, v);
+        public static hquat Rotated(hquat q, GlmHalf angle, hvec3 v) => q.Rotated(angle, v);
         
         /// <summary>
         /// Creates a hmat3 that realizes the rotation of this quaternion
@@ -216,17 +216,17 @@ namespace GlmSharp
         /// <summary>
         /// Calculates a proper spherical interpolation between two quaternions (only works for normalized quaternions).
         /// </summary>
-        public static hquat Mix(hquat x, hquat y, Half a) => hquat.Mix(x, y, a);
+        public static hquat Mix(hquat x, hquat y, GlmHalf a) => hquat.Mix(x, y, a);
         
         /// <summary>
         /// Calculates a proper spherical interpolation between two quaternions (only works for normalized quaternions).
         /// </summary>
-        public static hquat SLerp(hquat x, hquat y, Half a) => hquat.SLerp(x, y, a);
+        public static hquat SLerp(hquat x, hquat y, GlmHalf a) => hquat.SLerp(x, y, a);
         
         /// <summary>
         /// Applies squad interpolation of these quaternions
         /// </summary>
-        public static hquat Squad(hquat q1, hquat q2, hquat s1, hquat s2, Half h) => hquat.Squad(q1, q2, s1, s2, h);
+        public static hquat Squad(hquat q1, hquat q2, hquat s1, hquat s2, GlmHalf h) => hquat.Squad(q1, q2, s1, s2, h);
         
         /// <summary>
         /// Returns a hquat from component-wise application of Lerp (min * (1-a) + max * a).

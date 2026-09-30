@@ -156,41 +156,41 @@ namespace System
             return shiftTable;
         }
 
-        public static float HalfToSingle(Half half)
+        public static float HalfToSingle(GlmHalf half)
         {
             uint result = mantissaTable[offsetTable[half.value >> 10] + (half.value & 0x3ff)] + exponentTable[half.value >> 10];
             return BitConverter.ToSingle(BitConverter.GetBytes(result), 0); // TODO faster
         }
-        public static Half SingleToHalf(float single)
+        public static GlmHalf SingleToHalf(float single)
         {
             uint value = BitConverter.ToUInt32(BitConverter.GetBytes(single), 0); // TODO faster
 
             ushort result = (ushort)(baseTable[(value >> 23) & 0x1ff] + ((value & 0x007fffff) >> shiftTable[value >> 23]));
-            return Half.ToHalf(result);
+            return GlmHalf.ToHalf(result);
         }
 
-        public static Half Negate(Half half)
+        public static GlmHalf Negate(GlmHalf half)
         {
-            return Half.ToHalf((ushort)(half.value ^ 0x8000));
+            return GlmHalf.ToHalf((ushort)(half.value ^ 0x8000));
         }
-        public static Half Abs(Half half)
+        public static GlmHalf Abs(GlmHalf half)
         {
-            return Half.ToHalf((ushort)(half.value & 0x7fff));
+            return GlmHalf.ToHalf((ushort)(half.value & 0x7fff));
         }
 
-        public static bool IsNaN(Half half)
+        public static bool IsNaN(GlmHalf half)
         {
             return ((half.value & 0x7fff) > 0x7c00);
         }
-        public static bool IsInfinity(Half half)
+        public static bool IsInfinity(GlmHalf half)
         {
             return ((half.value & 0x7fff) == 0x7c00);
         }        
-        public static bool IsPositiveInfinity(Half half)
+        public static bool IsPositiveInfinity(GlmHalf half)
         {
             return (half.value == 0x7c00);
         }
-        public static bool IsNegativeInfinity(Half half)
+        public static bool IsNegativeInfinity(GlmHalf half)
         {
             return (half.value == 0xfc00);
         }

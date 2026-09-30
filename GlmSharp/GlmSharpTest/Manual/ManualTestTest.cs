@@ -40,9 +40,9 @@ namespace GlmSharpTest.Manual
         [Test]
         public void HalfTypeZero()
         {
-            var v0 = new Half(-5.5);
-            var v1 = new Half(0.5);
-            var v2 = new Half(0.5);
+            var v0 = new GlmHalf(-5.5);
+            var v1 = new GlmHalf(0.5);
+            var v2 = new GlmHalf(0.5);
             var a = v0 * (v1 - v2);
             var b = v0 * v1 - v0 * v2;
 
@@ -56,10 +56,10 @@ namespace GlmSharpTest.Manual
             Console.WriteLine(BitConverter.ToString(BitConverter.GetBytes(fb)));
             Console.WriteLine(BitConverter.ToString(BitConverter.GetBytes(-fb)));
 
-            Console.WriteLine(Half.GetBits(new Half(-5.5) * new Half(0.0)));
-            Console.WriteLine(Half.GetBits(new Half(-5.5) * new Half(-0.0)));
-            Console.WriteLine(Half.GetBits(new Half(5.5) * new Half(0.0)));
-            Console.WriteLine(Half.GetBits(new Half(5.5) * new Half(-0.0)));
+            Console.WriteLine(Half.GetBits(new GlmHalf(-5.5) * new GlmHalf(0.0)));
+            Console.WriteLine(Half.GetBits(new GlmHalf(-5.5) * new GlmHalf(-0.0)));
+            Console.WriteLine(Half.GetBits(new GlmHalf(5.5) * new GlmHalf(0.0)));
+            Console.WriteLine(Half.GetBits(new GlmHalf(5.5) * new GlmHalf(-0.0)));
             Console.WriteLine(Half.GetBits(a));
             Console.WriteLine(Half.GetBits(b));*/
             Assert.AreEqual(a, b);
@@ -68,11 +68,11 @@ namespace GlmSharpTest.Manual
         [Test]
         public void HalfSerializationJson()
         {
-            var h = new Half(2.2);
+            var h = new GlmHalf(2.2);
             var sh = JsonConvert.SerializeObject(h);
             Console.WriteLine(sh);
 
-            var v0 = new hvec3(new Half(-2), new Half(-4), new Half(3));
+            var v0 = new hvec3(new GlmHalf(-2), new GlmHalf(-4), new GlmHalf(3));
             var s0 = JsonConvert.SerializeObject(v0);
 
             var v1 = JsonConvert.DeserializeObject<hvec3>(s0);

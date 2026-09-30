@@ -22,154 +22,154 @@ namespace GlmSharpTest.Generated.Vec2
         public void Constructors()
         {
             {
-                var v = new hvec2(new Half(7.5));
-                Assert.AreEqual(new Half(7.5), v.x);
-                Assert.AreEqual(new Half(7.5), v.y);
+                var v = new hvec2(new GlmHalf(7.5));
+                Assert.AreEqual(new GlmHalf(7.5), v.x);
+                Assert.AreEqual(new GlmHalf(7.5), v.y);
             }
             {
-                var v = new hvec2(new Half(-8), new Half(6.5));
-                Assert.AreEqual(new Half(-8), v.x);
-                Assert.AreEqual(new Half(6.5), v.y);
+                var v = new hvec2(new GlmHalf(-8), new GlmHalf(6.5));
+                Assert.AreEqual(new GlmHalf(-8), v.x);
+                Assert.AreEqual(new GlmHalf(6.5), v.y);
             }
             {
-                var v = new hvec2(new hvec2(new Half(-3.5), new Half(-2.5)));
-                Assert.AreEqual(new Half(-3.5), v.x);
-                Assert.AreEqual(new Half(-2.5), v.y);
+                var v = new hvec2(new hvec2(new GlmHalf(-3.5), new GlmHalf(-2.5)));
+                Assert.AreEqual(new GlmHalf(-3.5), v.x);
+                Assert.AreEqual(new GlmHalf(-2.5), v.y);
             }
             {
-                var v = new hvec2(new hvec3(new Half(8.5), new Half(-0.5), new Half(7.5)));
-                Assert.AreEqual(new Half(8.5), v.x);
-                Assert.AreEqual(new Half(-0.5), v.y);
+                var v = new hvec2(new hvec3(new GlmHalf(8.5), new GlmHalf(-0.5), new GlmHalf(7.5)));
+                Assert.AreEqual(new GlmHalf(8.5), v.x);
+                Assert.AreEqual(new GlmHalf(-0.5), v.y);
             }
             {
-                var v = new hvec2(new hvec4(new Half(3), new Half(4), new Half(4), new Half(-0.5)));
-                Assert.AreEqual(new Half(3), v.x);
-                Assert.AreEqual(new Half(4), v.y);
+                var v = new hvec2(new hvec4(new GlmHalf(3), new GlmHalf(4), new GlmHalf(4), new GlmHalf(-0.5)));
+                Assert.AreEqual(new GlmHalf(3), v.x);
+                Assert.AreEqual(new GlmHalf(4), v.y);
             }
         }
 
         [Test]
         public void Indexer()
         {
-            var v = new hvec2(new Half(8.5), new Half(5.5));
-            Assert.AreEqual(new Half(8.5), v[0]);
-            Assert.AreEqual(new Half(5.5), v[1]);
+            var v = new hvec2(new GlmHalf(8.5), new GlmHalf(5.5));
+            Assert.AreEqual(new GlmHalf(8.5), v[0]);
+            Assert.AreEqual(new GlmHalf(5.5), v[1]);
             
             Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[-2147483648]; } );
-            Assert.Throws<ArgumentOutOfRangeException>(() => { v[-2147483648] = Half.Zero; } );
+            Assert.Throws<ArgumentOutOfRangeException>(() => { v[-2147483648] = GlmHalf.Zero; } );
             Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[-1]; } );
-            Assert.Throws<ArgumentOutOfRangeException>(() => { v[-1] = Half.Zero; } );
+            Assert.Throws<ArgumentOutOfRangeException>(() => { v[-1] = GlmHalf.Zero; } );
             Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[2]; } );
-            Assert.Throws<ArgumentOutOfRangeException>(() => { v[2] = Half.Zero; } );
+            Assert.Throws<ArgumentOutOfRangeException>(() => { v[2] = GlmHalf.Zero; } );
             Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[2147483647]; } );
-            Assert.Throws<ArgumentOutOfRangeException>(() => { v[2147483647] = Half.Zero; } );
+            Assert.Throws<ArgumentOutOfRangeException>(() => { v[2147483647] = GlmHalf.Zero; } );
             Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[5]; } );
-            Assert.Throws<ArgumentOutOfRangeException>(() => { v[5] = Half.Zero; } );
+            Assert.Throws<ArgumentOutOfRangeException>(() => { v[5] = GlmHalf.Zero; } );
             
-            v[1] = Half.Zero;
-            Assert.AreEqual(Half.Zero, v[1]);
-            v[1] = Half.One;
-            Assert.AreEqual(Half.One, v[1]);
-            v[1] = new Half(2);
-            Assert.AreEqual(new Half(2), v[1]);
-            v[1] = new Half(3);
-            Assert.AreEqual(new Half(3), v[1]);
-            v[0] = new Half(4);
-            Assert.AreEqual(new Half(4), v[0]);
-            v[1] = new Half(5);
-            Assert.AreEqual(new Half(5), v[1]);
-            v[1] = new Half(6);
-            Assert.AreEqual(new Half(6), v[1]);
-            v[0] = new Half(7);
-            Assert.AreEqual(new Half(7), v[0]);
-            v[0] = new Half(8);
-            Assert.AreEqual(new Half(8), v[0]);
-            v[0] = new Half(9);
-            Assert.AreEqual(new Half(9), v[0]);
-            v[1] = new Half(-1);
-            Assert.AreEqual(new Half(-1), v[1]);
-            v[1] = new Half(-2);
-            Assert.AreEqual(new Half(-2), v[1]);
-            v[0] = new Half(-3);
-            Assert.AreEqual(new Half(-3), v[0]);
-            v[0] = new Half(-4);
-            Assert.AreEqual(new Half(-4), v[0]);
-            v[0] = new Half(-5);
-            Assert.AreEqual(new Half(-5), v[0]);
-            v[0] = new Half(-6);
-            Assert.AreEqual(new Half(-6), v[0]);
-            v[1] = new Half(-7);
-            Assert.AreEqual(new Half(-7), v[1]);
-            v[1] = new Half(-8);
-            Assert.AreEqual(new Half(-8), v[1]);
-            v[1] = new Half(-9);
-            Assert.AreEqual(new Half(-9), v[1]);
-            v[1] = new Half(-9.5);
-            Assert.AreEqual(new Half(-9.5), v[1]);
-            v[1] = new Half(-8.5);
-            Assert.AreEqual(new Half(-8.5), v[1]);
-            v[0] = new Half(-7.5);
-            Assert.AreEqual(new Half(-7.5), v[0]);
-            v[1] = new Half(-6.5);
-            Assert.AreEqual(new Half(-6.5), v[1]);
-            v[0] = new Half(-5.5);
-            Assert.AreEqual(new Half(-5.5), v[0]);
-            v[0] = new Half(-4.5);
-            Assert.AreEqual(new Half(-4.5), v[0]);
-            v[0] = new Half(-3.5);
-            Assert.AreEqual(new Half(-3.5), v[0]);
-            v[0] = new Half(-2.5);
-            Assert.AreEqual(new Half(-2.5), v[0]);
-            v[1] = new Half(-1.5);
-            Assert.AreEqual(new Half(-1.5), v[1]);
-            v[0] = new Half(-0.5);
-            Assert.AreEqual(new Half(-0.5), v[0]);
-            v[0] = new Half(0.5);
-            Assert.AreEqual(new Half(0.5), v[0]);
-            v[1] = new Half(1.5);
-            Assert.AreEqual(new Half(1.5), v[1]);
-            v[1] = new Half(2.5);
-            Assert.AreEqual(new Half(2.5), v[1]);
-            v[1] = new Half(3.5);
-            Assert.AreEqual(new Half(3.5), v[1]);
-            v[1] = new Half(4.5);
-            Assert.AreEqual(new Half(4.5), v[1]);
-            v[0] = new Half(5.5);
-            Assert.AreEqual(new Half(5.5), v[0]);
-            v[1] = new Half(6.5);
-            Assert.AreEqual(new Half(6.5), v[1]);
-            v[0] = new Half(7.5);
-            Assert.AreEqual(new Half(7.5), v[0]);
-            v[1] = new Half(8.5);
-            Assert.AreEqual(new Half(8.5), v[1]);
-            v[0] = new Half(9.5);
-            Assert.AreEqual(new Half(9.5), v[0]);
+            v[1] = GlmHalf.Zero;
+            Assert.AreEqual(GlmHalf.Zero, v[1]);
+            v[1] = GlmHalf.One;
+            Assert.AreEqual(GlmHalf.One, v[1]);
+            v[1] = new GlmHalf(2);
+            Assert.AreEqual(new GlmHalf(2), v[1]);
+            v[1] = new GlmHalf(3);
+            Assert.AreEqual(new GlmHalf(3), v[1]);
+            v[0] = new GlmHalf(4);
+            Assert.AreEqual(new GlmHalf(4), v[0]);
+            v[1] = new GlmHalf(5);
+            Assert.AreEqual(new GlmHalf(5), v[1]);
+            v[1] = new GlmHalf(6);
+            Assert.AreEqual(new GlmHalf(6), v[1]);
+            v[0] = new GlmHalf(7);
+            Assert.AreEqual(new GlmHalf(7), v[0]);
+            v[0] = new GlmHalf(8);
+            Assert.AreEqual(new GlmHalf(8), v[0]);
+            v[0] = new GlmHalf(9);
+            Assert.AreEqual(new GlmHalf(9), v[0]);
+            v[1] = new GlmHalf(-1);
+            Assert.AreEqual(new GlmHalf(-1), v[1]);
+            v[1] = new GlmHalf(-2);
+            Assert.AreEqual(new GlmHalf(-2), v[1]);
+            v[0] = new GlmHalf(-3);
+            Assert.AreEqual(new GlmHalf(-3), v[0]);
+            v[0] = new GlmHalf(-4);
+            Assert.AreEqual(new GlmHalf(-4), v[0]);
+            v[0] = new GlmHalf(-5);
+            Assert.AreEqual(new GlmHalf(-5), v[0]);
+            v[0] = new GlmHalf(-6);
+            Assert.AreEqual(new GlmHalf(-6), v[0]);
+            v[1] = new GlmHalf(-7);
+            Assert.AreEqual(new GlmHalf(-7), v[1]);
+            v[1] = new GlmHalf(-8);
+            Assert.AreEqual(new GlmHalf(-8), v[1]);
+            v[1] = new GlmHalf(-9);
+            Assert.AreEqual(new GlmHalf(-9), v[1]);
+            v[1] = new GlmHalf(-9.5);
+            Assert.AreEqual(new GlmHalf(-9.5), v[1]);
+            v[1] = new GlmHalf(-8.5);
+            Assert.AreEqual(new GlmHalf(-8.5), v[1]);
+            v[0] = new GlmHalf(-7.5);
+            Assert.AreEqual(new GlmHalf(-7.5), v[0]);
+            v[1] = new GlmHalf(-6.5);
+            Assert.AreEqual(new GlmHalf(-6.5), v[1]);
+            v[0] = new GlmHalf(-5.5);
+            Assert.AreEqual(new GlmHalf(-5.5), v[0]);
+            v[0] = new GlmHalf(-4.5);
+            Assert.AreEqual(new GlmHalf(-4.5), v[0]);
+            v[0] = new GlmHalf(-3.5);
+            Assert.AreEqual(new GlmHalf(-3.5), v[0]);
+            v[0] = new GlmHalf(-2.5);
+            Assert.AreEqual(new GlmHalf(-2.5), v[0]);
+            v[1] = new GlmHalf(-1.5);
+            Assert.AreEqual(new GlmHalf(-1.5), v[1]);
+            v[0] = new GlmHalf(-0.5);
+            Assert.AreEqual(new GlmHalf(-0.5), v[0]);
+            v[0] = new GlmHalf(0.5);
+            Assert.AreEqual(new GlmHalf(0.5), v[0]);
+            v[1] = new GlmHalf(1.5);
+            Assert.AreEqual(new GlmHalf(1.5), v[1]);
+            v[1] = new GlmHalf(2.5);
+            Assert.AreEqual(new GlmHalf(2.5), v[1]);
+            v[1] = new GlmHalf(3.5);
+            Assert.AreEqual(new GlmHalf(3.5), v[1]);
+            v[1] = new GlmHalf(4.5);
+            Assert.AreEqual(new GlmHalf(4.5), v[1]);
+            v[0] = new GlmHalf(5.5);
+            Assert.AreEqual(new GlmHalf(5.5), v[0]);
+            v[1] = new GlmHalf(6.5);
+            Assert.AreEqual(new GlmHalf(6.5), v[1]);
+            v[0] = new GlmHalf(7.5);
+            Assert.AreEqual(new GlmHalf(7.5), v[0]);
+            v[1] = new GlmHalf(8.5);
+            Assert.AreEqual(new GlmHalf(8.5), v[1]);
+            v[0] = new GlmHalf(9.5);
+            Assert.AreEqual(new GlmHalf(9.5), v[0]);
         }
 
         [Test]
         public void PropertyValues()
         {
-            var v = new hvec2(new Half(-6.5), Half.Zero);
+            var v = new hvec2(new GlmHalf(-6.5), GlmHalf.Zero);
             var vals = v.Values;
-            Assert.AreEqual(new Half(-6.5), vals[0]);
-            Assert.AreEqual(Half.Zero, vals[1]);
+            Assert.AreEqual(new GlmHalf(-6.5), vals[0]);
+            Assert.AreEqual(GlmHalf.Zero, vals[1]);
             Assert.That(vals.SequenceEqual(v.ToArray()));
         }
 
         [Test]
         public void StaticProperties()
         {
-            Assert.AreEqual(Half.Zero, hvec2.Zero.x);
-            Assert.AreEqual(Half.Zero, hvec2.Zero.y);
+            Assert.AreEqual(GlmHalf.Zero, hvec2.Zero.x);
+            Assert.AreEqual(GlmHalf.Zero, hvec2.Zero.y);
             
-            Assert.AreEqual(Half.One, hvec2.Ones.x);
-            Assert.AreEqual(Half.One, hvec2.Ones.y);
+            Assert.AreEqual(GlmHalf.One, hvec2.Ones.x);
+            Assert.AreEqual(GlmHalf.One, hvec2.Ones.y);
             
-            Assert.AreEqual(Half.One, hvec2.UnitX.x);
-            Assert.AreEqual(Half.Zero, hvec2.UnitX.y);
+            Assert.AreEqual(GlmHalf.One, hvec2.UnitX.x);
+            Assert.AreEqual(GlmHalf.Zero, hvec2.UnitX.y);
             
-            Assert.AreEqual(Half.Zero, hvec2.UnitY.x);
-            Assert.AreEqual(Half.One, hvec2.UnitY.y);
+            Assert.AreEqual(GlmHalf.Zero, hvec2.UnitY.x);
+            Assert.AreEqual(GlmHalf.One, hvec2.UnitY.y);
             
             Assert.AreEqual(Half.MaxValue, hvec2.MaxValue.x);
             Assert.AreEqual(Half.MaxValue, hvec2.MaxValue.y);
@@ -193,9 +193,9 @@ namespace GlmSharpTest.Generated.Vec2
         [Test]
         public void Operators()
         {
-            var v1 = new hvec2(new Half(-4), new Half(2.5));
-            var v2 = new hvec2(new Half(-4), new Half(2.5));
-            var v3 = new hvec2(new Half(2.5), new Half(-4));
+            var v1 = new hvec2(new GlmHalf(-4), new GlmHalf(2.5));
+            var v2 = new hvec2(new GlmHalf(-4), new GlmHalf(2.5));
+            var v3 = new hvec2(new GlmHalf(2.5), new GlmHalf(-4));
             Assert.That(v1 == new hvec2(v1));
             Assert.That(v2 == new hvec2(v2));
             Assert.That(v3 == new hvec2(v3));
@@ -207,7 +207,7 @@ namespace GlmSharpTest.Generated.Vec2
         [Test]
         public void StringInterop()
         {
-            var v = new hvec2(new Half(-9), new Half(5));
+            var v = new hvec2(new GlmHalf(-9), new GlmHalf(5));
             
             var s0 = v.ToString();
             var s1 = v.ToString("#");
@@ -253,7 +253,7 @@ namespace GlmSharpTest.Generated.Vec2
         [Test]
         public void SerializationJson()
         {
-            var v0 = new hvec2(new Half(-6.5), new Half(6));
+            var v0 = new hvec2(new GlmHalf(-6.5), new GlmHalf(6));
             var s0 = JsonConvert.SerializeObject(v0);
             
             var v1 = JsonConvert.DeserializeObject<hvec2>(s0);
@@ -267,43 +267,43 @@ namespace GlmSharpTest.Generated.Vec2
         public void InvariantId()
         {
             {
-                var v0 = new hvec2(new Half(7.5), new Half(-5));
+                var v0 = new hvec2(new GlmHalf(7.5), new GlmHalf(-5));
                 Assert.AreEqual(v0, +v0);
             }
             {
-                var v0 = new hvec2(new Half(-4), new Half(-1));
+                var v0 = new hvec2(new GlmHalf(-4), new GlmHalf(-1));
                 Assert.AreEqual(v0, +v0);
             }
             {
-                var v0 = new hvec2(new Half(4), new Half(3));
+                var v0 = new hvec2(new GlmHalf(4), new GlmHalf(3));
                 Assert.AreEqual(v0, +v0);
             }
             {
-                var v0 = new hvec2(new Half(4), new Half(3.5));
+                var v0 = new hvec2(new GlmHalf(4), new GlmHalf(3.5));
                 Assert.AreEqual(v0, +v0);
             }
             {
-                var v0 = new hvec2(new Half(0.5), new Half(0.5));
+                var v0 = new hvec2(new GlmHalf(0.5), new GlmHalf(0.5));
                 Assert.AreEqual(v0, +v0);
             }
             {
-                var v0 = new hvec2(new Half(-1), new Half(5));
+                var v0 = new hvec2(new GlmHalf(-1), new GlmHalf(5));
                 Assert.AreEqual(v0, +v0);
             }
             {
-                var v0 = new hvec2(new Half(8), new Half(-0.5));
+                var v0 = new hvec2(new GlmHalf(8), new GlmHalf(-0.5));
                 Assert.AreEqual(v0, +v0);
             }
             {
-                var v0 = new hvec2(new Half(-3.5), new Half(-2));
+                var v0 = new hvec2(new GlmHalf(-3.5), new GlmHalf(-2));
                 Assert.AreEqual(v0, +v0);
             }
             {
-                var v0 = new hvec2(new Half(2), new Half(-8.5));
+                var v0 = new hvec2(new GlmHalf(2), new GlmHalf(-8.5));
                 Assert.AreEqual(v0, +v0);
             }
             {
-                var v0 = new hvec2(new Half(5), new Half(-6));
+                var v0 = new hvec2(new GlmHalf(5), new GlmHalf(-6));
                 Assert.AreEqual(v0, +v0);
             }
         }
@@ -312,43 +312,43 @@ namespace GlmSharpTest.Generated.Vec2
         public void InvariantDouble()
         {
             {
-                var v0 = new hvec2(new Half(5.5), new Half(-3));
+                var v0 = new hvec2(new GlmHalf(5.5), new GlmHalf(-3));
                 Assert.AreEqual(v0 + v0, 2 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-2.5), new Half(-2));
+                var v0 = new hvec2(new GlmHalf(-2.5), new GlmHalf(-2));
                 Assert.AreEqual(v0 + v0, 2 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-8), new Half(4.5));
+                var v0 = new hvec2(new GlmHalf(-8), new GlmHalf(4.5));
                 Assert.AreEqual(v0 + v0, 2 * v0);
             }
             {
-                var v0 = new hvec2(new Half(5), new Half(8));
+                var v0 = new hvec2(new GlmHalf(5), new GlmHalf(8));
                 Assert.AreEqual(v0 + v0, 2 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-6.5), new Half(7));
+                var v0 = new hvec2(new GlmHalf(-6.5), new GlmHalf(7));
                 Assert.AreEqual(v0 + v0, 2 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-6.5), new Half(1.5));
+                var v0 = new hvec2(new GlmHalf(-6.5), new GlmHalf(1.5));
                 Assert.AreEqual(v0 + v0, 2 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-9), new Half(-7.5));
+                var v0 = new hvec2(new GlmHalf(-9), new GlmHalf(-7.5));
                 Assert.AreEqual(v0 + v0, 2 * v0);
             }
             {
-                var v0 = new hvec2(new Half(7.5), new Half(-9.5));
+                var v0 = new hvec2(new GlmHalf(7.5), new GlmHalf(-9.5));
                 Assert.AreEqual(v0 + v0, 2 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-2.5), new Half(8.5));
+                var v0 = new hvec2(new GlmHalf(-2.5), new GlmHalf(8.5));
                 Assert.AreEqual(v0 + v0, 2 * v0);
             }
             {
-                var v0 = new hvec2(new Half(9), new Half(-5.5));
+                var v0 = new hvec2(new GlmHalf(9), new GlmHalf(-5.5));
                 Assert.AreEqual(v0 + v0, 2 * v0);
             }
         }
@@ -357,43 +357,43 @@ namespace GlmSharpTest.Generated.Vec2
         public void InvariantTriple()
         {
             {
-                var v0 = new hvec2(new Half(-2), new Half(-4));
+                var v0 = new hvec2(new GlmHalf(-2), new GlmHalf(-4));
                 Assert.AreEqual(v0 + v0 + v0, 3 * v0);
             }
             {
-                var v0 = new hvec2(new Half(7), new Half(1.5));
+                var v0 = new hvec2(new GlmHalf(7), new GlmHalf(1.5));
                 Assert.AreEqual(v0 + v0 + v0, 3 * v0);
             }
             {
-                var v0 = new hvec2(Half.One, new Half(2.5));
+                var v0 = new hvec2(GlmHalf.One, new GlmHalf(2.5));
                 Assert.AreEqual(v0 + v0 + v0, 3 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-5), new Half(-1.5));
+                var v0 = new hvec2(new GlmHalf(-5), new GlmHalf(-1.5));
                 Assert.AreEqual(v0 + v0 + v0, 3 * v0);
             }
             {
-                var v0 = new hvec2(new Half(6.5), new Half(-2.5));
+                var v0 = new hvec2(new GlmHalf(6.5), new GlmHalf(-2.5));
                 Assert.AreEqual(v0 + v0 + v0, 3 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-8.5), new Half(-5.5));
+                var v0 = new hvec2(new GlmHalf(-8.5), new GlmHalf(-5.5));
                 Assert.AreEqual(v0 + v0 + v0, 3 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-1.5), new Half(6.5));
+                var v0 = new hvec2(new GlmHalf(-1.5), new GlmHalf(6.5));
                 Assert.AreEqual(v0 + v0 + v0, 3 * v0);
             }
             {
-                var v0 = new hvec2(new Half(4.5), new Half(-4.5));
+                var v0 = new hvec2(new GlmHalf(4.5), new GlmHalf(-4.5));
                 Assert.AreEqual(v0 + v0 + v0, 3 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-1.5), new Half(4.5));
+                var v0 = new hvec2(new GlmHalf(-1.5), new GlmHalf(4.5));
                 Assert.AreEqual(v0 + v0 + v0, 3 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-2), new Half(8));
+                var v0 = new hvec2(new GlmHalf(-2), new GlmHalf(8));
                 Assert.AreEqual(v0 + v0 + v0, 3 * v0);
             }
         }
@@ -402,53 +402,53 @@ namespace GlmSharpTest.Generated.Vec2
         public void InvariantCommutative()
         {
             {
-                var v0 = new hvec2(new Half(-6), new Half(-7));
-                var v1 = new hvec2(new Half(9.5), new Half(-5));
+                var v0 = new hvec2(new GlmHalf(-6), new GlmHalf(-7));
+                var v1 = new hvec2(new GlmHalf(9.5), new GlmHalf(-5));
                 Assert.AreEqual(v0 * v1, v1 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-3), new Half(9.5));
-                var v1 = new hvec2(new Half(5.5), new Half(-1));
+                var v0 = new hvec2(new GlmHalf(-3), new GlmHalf(9.5));
+                var v1 = new hvec2(new GlmHalf(5.5), new GlmHalf(-1));
                 Assert.AreEqual(v0 * v1, v1 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-7), new Half(5.5));
-                var v1 = new hvec2(new Half(-2), new Half(8.5));
+                var v0 = new hvec2(new GlmHalf(-7), new GlmHalf(5.5));
+                var v1 = new hvec2(new GlmHalf(-2), new GlmHalf(8.5));
                 Assert.AreEqual(v0 * v1, v1 * v0);
             }
             {
-                var v0 = new hvec2(new Half(2.5), new Half(8));
-                var v1 = new hvec2(new Half(-7), new Half(-8));
+                var v0 = new hvec2(new GlmHalf(2.5), new GlmHalf(8));
+                var v1 = new hvec2(new GlmHalf(-7), new GlmHalf(-8));
                 Assert.AreEqual(v0 * v1, v1 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-2.5), new Half(-5));
-                var v1 = new hvec2(new Half(5.5), new Half(-4));
+                var v0 = new hvec2(new GlmHalf(-2.5), new GlmHalf(-5));
+                var v1 = new hvec2(new GlmHalf(5.5), new GlmHalf(-4));
                 Assert.AreEqual(v0 * v1, v1 * v0);
             }
             {
-                var v0 = new hvec2(new Half(4), new Half(4.5));
-                var v1 = new hvec2(new Half(9), new Half(3));
+                var v0 = new hvec2(new GlmHalf(4), new GlmHalf(4.5));
+                var v1 = new hvec2(new GlmHalf(9), new GlmHalf(3));
                 Assert.AreEqual(v0 * v1, v1 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-9.5), Half.Zero);
-                var v1 = new hvec2(new Half(-1), Half.Zero);
+                var v0 = new hvec2(new GlmHalf(-9.5), GlmHalf.Zero);
+                var v1 = new hvec2(new GlmHalf(-1), GlmHalf.Zero);
                 Assert.AreEqual(v0 * v1, v1 * v0);
             }
             {
-                var v0 = new hvec2(new Half(-2.5), new Half(4.5));
-                var v1 = new hvec2(new Half(-0.5), new Half(4));
+                var v0 = new hvec2(new GlmHalf(-2.5), new GlmHalf(4.5));
+                var v1 = new hvec2(new GlmHalf(-0.5), new GlmHalf(4));
                 Assert.AreEqual(v0 * v1, v1 * v0);
             }
             {
-                var v0 = new hvec2(Half.One, new Half(-5));
-                var v1 = new hvec2(new Half(9), new Half(3));
+                var v0 = new hvec2(GlmHalf.One, new GlmHalf(-5));
+                var v1 = new hvec2(new GlmHalf(9), new GlmHalf(3));
                 Assert.AreEqual(v0 * v1, v1 * v0);
             }
             {
-                var v0 = new hvec2(Half.One, new Half(-0.5));
-                var v1 = new hvec2(new Half(4.5), new Half(-6.5));
+                var v0 = new hvec2(GlmHalf.One, new GlmHalf(-0.5));
+                var v1 = new hvec2(new GlmHalf(4.5), new GlmHalf(-6.5));
                 Assert.AreEqual(v0 * v1, v1 * v0);
             }
         }
@@ -457,63 +457,63 @@ namespace GlmSharpTest.Generated.Vec2
         public void InvariantAssociative()
         {
             {
-                var v0 = new hvec2(new Half(3), new Half(-3.5));
-                var v1 = new hvec2(new Half(-7.5), new Half(-9.5));
-                var v2 = new hvec2(new Half(-0.5), new Half(9));
+                var v0 = new hvec2(new GlmHalf(3), new GlmHalf(-3.5));
+                var v1 = new hvec2(new GlmHalf(-7.5), new GlmHalf(-9.5));
+                var v2 = new hvec2(new GlmHalf(-0.5), new GlmHalf(9));
                 Assert.AreEqual(v0 * (v1 + v2), v0 * v1 + v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(-6.5), new Half(-9));
-                var v1 = new hvec2(new Half(7.5), new Half(0.5));
-                var v2 = new hvec2(Half.Zero, new Half(-9.5));
+                var v0 = new hvec2(new GlmHalf(-6.5), new GlmHalf(-9));
+                var v1 = new hvec2(new GlmHalf(7.5), new GlmHalf(0.5));
+                var v2 = new hvec2(GlmHalf.Zero, new GlmHalf(-9.5));
                 Assert.AreEqual(v0 * (v1 + v2), v0 * v1 + v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(-7.5), new Half(-5.5));
-                var v1 = new hvec2(new Half(3), new Half(7.5));
-                var v2 = new hvec2(new Half(4.5), new Half(6.5));
+                var v0 = new hvec2(new GlmHalf(-7.5), new GlmHalf(-5.5));
+                var v1 = new hvec2(new GlmHalf(3), new GlmHalf(7.5));
+                var v2 = new hvec2(new GlmHalf(4.5), new GlmHalf(6.5));
                 Assert.AreEqual(v0 * (v1 + v2), v0 * v1 + v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(7), new Half(7));
-                var v1 = new hvec2(new Half(-8.5), new Half(3.5));
-                var v2 = new hvec2(new Half(-3), new Half(-8.5));
+                var v0 = new hvec2(new GlmHalf(7), new GlmHalf(7));
+                var v1 = new hvec2(new GlmHalf(-8.5), new GlmHalf(3.5));
+                var v2 = new hvec2(new GlmHalf(-3), new GlmHalf(-8.5));
                 Assert.AreEqual(v0 * (v1 + v2), v0 * v1 + v0 * v2);
             }
             {
-                var v0 = new hvec2(Half.Zero, new Half(-8.5));
-                var v1 = new hvec2(new Half(2.5), new Half(-5));
-                var v2 = new hvec2(new Half(1.5), Half.One);
+                var v0 = new hvec2(GlmHalf.Zero, new GlmHalf(-8.5));
+                var v1 = new hvec2(new GlmHalf(2.5), new GlmHalf(-5));
+                var v2 = new hvec2(new GlmHalf(1.5), GlmHalf.One);
                 Assert.AreEqual(v0 * (v1 + v2), v0 * v1 + v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(2.5), new Half(-8.5));
-                var v1 = new hvec2(new Half(8.5), new Half(-8.5));
-                var v2 = new hvec2(new Half(7.5), new Half(-3));
+                var v0 = new hvec2(new GlmHalf(2.5), new GlmHalf(-8.5));
+                var v1 = new hvec2(new GlmHalf(8.5), new GlmHalf(-8.5));
+                var v2 = new hvec2(new GlmHalf(7.5), new GlmHalf(-3));
                 Assert.AreEqual(v0 * (v1 + v2), v0 * v1 + v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(6.5), new Half(-6.5));
-                var v1 = new hvec2(new Half(8.5), new Half(-5));
-                var v2 = new hvec2(new Half(2), new Half(4));
+                var v0 = new hvec2(new GlmHalf(6.5), new GlmHalf(-6.5));
+                var v1 = new hvec2(new GlmHalf(8.5), new GlmHalf(-5));
+                var v2 = new hvec2(new GlmHalf(2), new GlmHalf(4));
                 Assert.AreEqual(v0 * (v1 + v2), v0 * v1 + v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(-5), new Half(-4.5));
-                var v1 = new hvec2(new Half(1.5), new Half(5));
-                var v2 = new hvec2(new Half(-9), Half.One);
+                var v0 = new hvec2(new GlmHalf(-5), new GlmHalf(-4.5));
+                var v1 = new hvec2(new GlmHalf(1.5), new GlmHalf(5));
+                var v2 = new hvec2(new GlmHalf(-9), GlmHalf.One);
                 Assert.AreEqual(v0 * (v1 + v2), v0 * v1 + v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(2), new Half(-5));
-                var v1 = new hvec2(new Half(-5), Half.One);
-                var v2 = new hvec2(new Half(-1), new Half(4));
+                var v0 = new hvec2(new GlmHalf(2), new GlmHalf(-5));
+                var v1 = new hvec2(new GlmHalf(-5), GlmHalf.One);
+                var v2 = new hvec2(new GlmHalf(-1), new GlmHalf(4));
                 Assert.AreEqual(v0 * (v1 + v2), v0 * v1 + v0 * v2);
             }
             {
-                var v0 = new hvec2(Half.One, new Half(-1));
-                var v1 = new hvec2(new Half(-4), Half.Zero);
-                var v2 = new hvec2(new Half(-9), new Half(8));
+                var v0 = new hvec2(GlmHalf.One, new GlmHalf(-1));
+                var v1 = new hvec2(new GlmHalf(-4), GlmHalf.Zero);
+                var v2 = new hvec2(new GlmHalf(-9), new GlmHalf(8));
                 Assert.AreEqual(v0 * (v1 + v2), v0 * v1 + v0 * v2);
             }
         }
@@ -522,43 +522,43 @@ namespace GlmSharpTest.Generated.Vec2
         public void InvariantIdNeg()
         {
             {
-                var v0 = new hvec2(new Half(5), new Half(-3));
+                var v0 = new hvec2(new GlmHalf(5), new GlmHalf(-3));
                 Assert.AreEqual(v0, -(-v0));
             }
             {
-                var v0 = new hvec2(new Half(-7), new Half(-7));
+                var v0 = new hvec2(new GlmHalf(-7), new GlmHalf(-7));
                 Assert.AreEqual(v0, -(-v0));
             }
             {
-                var v0 = new hvec2(Half.One, new Half(8.5));
+                var v0 = new hvec2(GlmHalf.One, new GlmHalf(8.5));
                 Assert.AreEqual(v0, -(-v0));
             }
             {
-                var v0 = new hvec2(new Half(9.5), new Half(8));
+                var v0 = new hvec2(new GlmHalf(9.5), new GlmHalf(8));
                 Assert.AreEqual(v0, -(-v0));
             }
             {
-                var v0 = new hvec2(new Half(5), new Half(-9.5));
+                var v0 = new hvec2(new GlmHalf(5), new GlmHalf(-9.5));
                 Assert.AreEqual(v0, -(-v0));
             }
             {
-                var v0 = new hvec2(new Half(3.5), new Half(9.5));
+                var v0 = new hvec2(new GlmHalf(3.5), new GlmHalf(9.5));
                 Assert.AreEqual(v0, -(-v0));
             }
             {
-                var v0 = new hvec2(new Half(-1), new Half(-1));
+                var v0 = new hvec2(new GlmHalf(-1), new GlmHalf(-1));
                 Assert.AreEqual(v0, -(-v0));
             }
             {
-                var v0 = new hvec2(new Half(-8), new Half(-0.5));
+                var v0 = new hvec2(new GlmHalf(-8), new GlmHalf(-0.5));
                 Assert.AreEqual(v0, -(-v0));
             }
             {
-                var v0 = new hvec2(new Half(-0.5), new Half(5.5));
+                var v0 = new hvec2(new GlmHalf(-0.5), new GlmHalf(5.5));
                 Assert.AreEqual(v0, -(-v0));
             }
             {
-                var v0 = new hvec2(new Half(3.5), new Half(-1.5));
+                var v0 = new hvec2(new GlmHalf(3.5), new GlmHalf(-1.5));
                 Assert.AreEqual(v0, -(-v0));
             }
         }
@@ -567,53 +567,53 @@ namespace GlmSharpTest.Generated.Vec2
         public void InvariantCommutativeNeg()
         {
             {
-                var v0 = new hvec2(new Half(-1), new Half(7.5));
-                var v1 = new hvec2(new Half(2.5), new Half(-7.5));
+                var v0 = new hvec2(new GlmHalf(-1), new GlmHalf(7.5));
+                var v1 = new hvec2(new GlmHalf(2.5), new GlmHalf(-7.5));
                 Assert.AreEqual(v0 - v1, -(v1 - v0));
             }
             {
-                var v0 = new hvec2(new Half(-9), Half.One);
-                var v1 = new hvec2(new Half(3.5), new Half(-9));
+                var v0 = new hvec2(new GlmHalf(-9), GlmHalf.One);
+                var v1 = new hvec2(new GlmHalf(3.5), new GlmHalf(-9));
                 Assert.AreEqual(v0 - v1, -(v1 - v0));
             }
             {
-                var v0 = new hvec2(new Half(3.5), new Half(3));
-                var v1 = new hvec2(new Half(-8.5), new Half(7.5));
+                var v0 = new hvec2(new GlmHalf(3.5), new GlmHalf(3));
+                var v1 = new hvec2(new GlmHalf(-8.5), new GlmHalf(7.5));
                 Assert.AreEqual(v0 - v1, -(v1 - v0));
             }
             {
-                var v0 = new hvec2(new Half(-1.5), new Half(-7));
-                var v1 = new hvec2(new Half(7.5), new Half(5));
+                var v0 = new hvec2(new GlmHalf(-1.5), new GlmHalf(-7));
+                var v1 = new hvec2(new GlmHalf(7.5), new GlmHalf(5));
                 Assert.AreEqual(v0 - v1, -(v1 - v0));
             }
             {
-                var v0 = new hvec2(new Half(8.5), new Half(-1));
-                var v1 = new hvec2(new Half(9), new Half(7.5));
+                var v0 = new hvec2(new GlmHalf(8.5), new GlmHalf(-1));
+                var v1 = new hvec2(new GlmHalf(9), new GlmHalf(7.5));
                 Assert.AreEqual(v0 - v1, -(v1 - v0));
             }
             {
-                var v0 = new hvec2(new Half(2.5), new Half(-4.5));
-                var v1 = new hvec2(new Half(-5), new Half(7));
+                var v0 = new hvec2(new GlmHalf(2.5), new GlmHalf(-4.5));
+                var v1 = new hvec2(new GlmHalf(-5), new GlmHalf(7));
                 Assert.AreEqual(v0 - v1, -(v1 - v0));
             }
             {
-                var v0 = new hvec2(new Half(6), new Half(-2.5));
-                var v1 = new hvec2(Half.Zero, new Half(-3.5));
+                var v0 = new hvec2(new GlmHalf(6), new GlmHalf(-2.5));
+                var v1 = new hvec2(GlmHalf.Zero, new GlmHalf(-3.5));
                 Assert.AreEqual(v0 - v1, -(v1 - v0));
             }
             {
-                var v0 = new hvec2(new Half(-0.5), new Half(-1.5));
-                var v1 = new hvec2(new Half(-5.5), new Half(2));
+                var v0 = new hvec2(new GlmHalf(-0.5), new GlmHalf(-1.5));
+                var v1 = new hvec2(new GlmHalf(-5.5), new GlmHalf(2));
                 Assert.AreEqual(v0 - v1, -(v1 - v0));
             }
             {
-                var v0 = new hvec2(new Half(2), new Half(-9));
-                var v1 = new hvec2(new Half(2.5), new Half(7.5));
+                var v0 = new hvec2(new GlmHalf(2), new GlmHalf(-9));
+                var v1 = new hvec2(new GlmHalf(2.5), new GlmHalf(7.5));
                 Assert.AreEqual(v0 - v1, -(v1 - v0));
             }
             {
-                var v0 = new hvec2(new Half(2.5), new Half(9.5));
-                var v1 = new hvec2(new Half(3), new Half(6));
+                var v0 = new hvec2(new GlmHalf(2.5), new GlmHalf(9.5));
+                var v1 = new hvec2(new GlmHalf(3), new GlmHalf(6));
                 Assert.AreEqual(v0 - v1, -(v1 - v0));
             }
         }
@@ -622,63 +622,63 @@ namespace GlmSharpTest.Generated.Vec2
         public void InvariantAssociativeNeg()
         {
             {
-                var v0 = new hvec2(new Half(-5), new Half(-9.5));
-                var v1 = new hvec2(new Half(2), Half.One);
-                var v2 = new hvec2(new Half(-0.5), new Half(9));
+                var v0 = new hvec2(new GlmHalf(-5), new GlmHalf(-9.5));
+                var v1 = new hvec2(new GlmHalf(2), GlmHalf.One);
+                var v2 = new hvec2(new GlmHalf(-0.5), new GlmHalf(9));
                 Assert.AreEqual(v0 * (v1 - v2), v0 * v1 - v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(9), new Half(-4.5));
-                var v1 = new hvec2(Half.Zero, new Half(-7));
-                var v2 = new hvec2(new Half(-4.5), new Half(5));
+                var v0 = new hvec2(new GlmHalf(9), new GlmHalf(-4.5));
+                var v1 = new hvec2(GlmHalf.Zero, new GlmHalf(-7));
+                var v2 = new hvec2(new GlmHalf(-4.5), new GlmHalf(5));
                 Assert.AreEqual(v0 * (v1 - v2), v0 * v1 - v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(-1.5), new Half(4));
-                var v1 = new hvec2(new Half(-4.5), new Half(-6));
-                var v2 = new hvec2(new Half(4.5), new Half(-6.5));
+                var v0 = new hvec2(new GlmHalf(-1.5), new GlmHalf(4));
+                var v1 = new hvec2(new GlmHalf(-4.5), new GlmHalf(-6));
+                var v2 = new hvec2(new GlmHalf(4.5), new GlmHalf(-6.5));
                 Assert.AreEqual(v0 * (v1 - v2), v0 * v1 - v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(7.5), new Half(8));
-                var v1 = new hvec2(new Half(6), Half.One);
-                var v2 = new hvec2(new Half(-9.5), new Half(1.5));
+                var v0 = new hvec2(new GlmHalf(7.5), new GlmHalf(8));
+                var v1 = new hvec2(new GlmHalf(6), GlmHalf.One);
+                var v2 = new hvec2(new GlmHalf(-9.5), new GlmHalf(1.5));
                 Assert.AreEqual(v0 * (v1 - v2), v0 * v1 - v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(5.5), new Half(-4));
-                var v1 = new hvec2(new Half(-6.5), new Half(0.5));
-                var v2 = new hvec2(new Half(7), new Half(-3.5));
+                var v0 = new hvec2(new GlmHalf(5.5), new GlmHalf(-4));
+                var v1 = new hvec2(new GlmHalf(-6.5), new GlmHalf(0.5));
+                var v2 = new hvec2(new GlmHalf(7), new GlmHalf(-3.5));
                 Assert.AreEqual(v0 * (v1 - v2), v0 * v1 - v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(5), new Half(5));
-                var v1 = new hvec2(new Half(-6), new Half(5.5));
-                var v2 = new hvec2(new Half(-4), new Half(8.5));
+                var v0 = new hvec2(new GlmHalf(5), new GlmHalf(5));
+                var v1 = new hvec2(new GlmHalf(-6), new GlmHalf(5.5));
+                var v2 = new hvec2(new GlmHalf(-4), new GlmHalf(8.5));
                 Assert.AreEqual(v0 * (v1 - v2), v0 * v1 - v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(-8.5), new Half(-1.5));
-                var v1 = new hvec2(new Half(7.5), Half.One);
-                var v2 = new hvec2(new Half(-4.5), new Half(2.5));
+                var v0 = new hvec2(new GlmHalf(-8.5), new GlmHalf(-1.5));
+                var v1 = new hvec2(new GlmHalf(7.5), GlmHalf.One);
+                var v2 = new hvec2(new GlmHalf(-4.5), new GlmHalf(2.5));
                 Assert.AreEqual(v0 * (v1 - v2), v0 * v1 - v0 * v2);
             }
             {
-                var v0 = new hvec2(Half.One, new Half(2));
-                var v1 = new hvec2(new Half(-5), new Half(9));
-                var v2 = new hvec2(new Half(9), new Half(-4.5));
+                var v0 = new hvec2(GlmHalf.One, new GlmHalf(2));
+                var v1 = new hvec2(new GlmHalf(-5), new GlmHalf(9));
+                var v2 = new hvec2(new GlmHalf(9), new GlmHalf(-4.5));
                 Assert.AreEqual(v0 * (v1 - v2), v0 * v1 - v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(9.5), Half.Zero);
-                var v1 = new hvec2(new Half(-4), new Half(-1.5));
-                var v2 = new hvec2(new Half(-2.5), new Half(-5));
+                var v0 = new hvec2(new GlmHalf(9.5), GlmHalf.Zero);
+                var v1 = new hvec2(new GlmHalf(-4), new GlmHalf(-1.5));
+                var v2 = new hvec2(new GlmHalf(-2.5), new GlmHalf(-5));
                 Assert.AreEqual(v0 * (v1 - v2), v0 * v1 - v0 * v2);
             }
             {
-                var v0 = new hvec2(new Half(-5.5), new Half(-4));
-                var v1 = new hvec2(new Half(9.5), new Half(-1));
-                var v2 = new hvec2(new Half(6), new Half(-5));
+                var v0 = new hvec2(new GlmHalf(-5.5), new GlmHalf(-4));
+                var v1 = new hvec2(new GlmHalf(9.5), new GlmHalf(-1));
+                var v2 = new hvec2(new GlmHalf(6), new GlmHalf(-5));
                 Assert.AreEqual(v0 * (v1 - v2), v0 * v1 - v0 * v2);
             }
         }
@@ -687,53 +687,53 @@ namespace GlmSharpTest.Generated.Vec2
         public void TriangleInequality()
         {
             {
-                var v0 = new hvec2(new Half(-7), new Half(3));
-                var v1 = new hvec2(new Half(-8), new Half(2));
+                var v0 = new hvec2(new GlmHalf(-7), new GlmHalf(3));
+                var v1 = new hvec2(new GlmHalf(-8), new GlmHalf(2));
                 Assert.GreaterOrEqual(v0.NormMax + v1.NormMax, (v0 + v1).NormMax);
             }
             {
-                var v0 = new hvec2(new Half(-6), new Half(9.5));
-                var v1 = new hvec2(new Half(-1.5), new Half(-4.5));
+                var v0 = new hvec2(new GlmHalf(-6), new GlmHalf(9.5));
+                var v1 = new hvec2(new GlmHalf(-1.5), new GlmHalf(-4.5));
                 Assert.GreaterOrEqual(v0.NormMax + v1.NormMax, (v0 + v1).NormMax);
             }
             {
-                var v0 = new hvec2(new Half(-6.5), new Half(-6));
-                var v1 = new hvec2(new Half(-6), new Half(7));
+                var v0 = new hvec2(new GlmHalf(-6.5), new GlmHalf(-6));
+                var v1 = new hvec2(new GlmHalf(-6), new GlmHalf(7));
                 Assert.GreaterOrEqual(v0.NormMax + v1.NormMax, (v0 + v1).NormMax);
             }
             {
-                var v0 = new hvec2(new Half(0.5), new Half(4.5));
-                var v1 = new hvec2(new Half(9), new Half(7.5));
+                var v0 = new hvec2(new GlmHalf(0.5), new GlmHalf(4.5));
+                var v1 = new hvec2(new GlmHalf(9), new GlmHalf(7.5));
                 Assert.GreaterOrEqual(v0.NormMax + v1.NormMax, (v0 + v1).NormMax);
             }
             {
-                var v0 = new hvec2(new Half(0.5), new Half(-8.5));
-                var v1 = new hvec2(new Half(5), new Half(8));
+                var v0 = new hvec2(new GlmHalf(0.5), new GlmHalf(-8.5));
+                var v1 = new hvec2(new GlmHalf(5), new GlmHalf(8));
                 Assert.GreaterOrEqual(v0.NormMax + v1.NormMax, (v0 + v1).NormMax);
             }
             {
-                var v0 = new hvec2(new Half(-2.5), new Half(-7));
-                var v1 = new hvec2(new Half(3.5), new Half(-5));
+                var v0 = new hvec2(new GlmHalf(-2.5), new GlmHalf(-7));
+                var v1 = new hvec2(new GlmHalf(3.5), new GlmHalf(-5));
                 Assert.GreaterOrEqual(v0.NormMax + v1.NormMax, (v0 + v1).NormMax);
             }
             {
-                var v0 = new hvec2(new Half(-9.5), new Half(-5.5));
-                var v1 = new hvec2(new Half(-7), new Half(7.5));
+                var v0 = new hvec2(new GlmHalf(-9.5), new GlmHalf(-5.5));
+                var v1 = new hvec2(new GlmHalf(-7), new GlmHalf(7.5));
                 Assert.GreaterOrEqual(v0.NormMax + v1.NormMax, (v0 + v1).NormMax);
             }
             {
-                var v0 = new hvec2(new Half(-0.5), Half.Zero);
-                var v1 = new hvec2(new Half(8.5), new Half(-3));
+                var v0 = new hvec2(new GlmHalf(-0.5), GlmHalf.Zero);
+                var v1 = new hvec2(new GlmHalf(8.5), new GlmHalf(-3));
                 Assert.GreaterOrEqual(v0.NormMax + v1.NormMax, (v0 + v1).NormMax);
             }
             {
-                var v0 = new hvec2(new Half(4.5), new Half(-2.5));
-                var v1 = new hvec2(new Half(6.5), new Half(-1));
+                var v0 = new hvec2(new GlmHalf(4.5), new GlmHalf(-2.5));
+                var v1 = new hvec2(new GlmHalf(6.5), new GlmHalf(-1));
                 Assert.GreaterOrEqual(v0.NormMax + v1.NormMax, (v0 + v1).NormMax);
             }
             {
-                var v0 = new hvec2(new Half(-2), new Half(-4));
-                var v1 = new hvec2(new Half(9.5), Half.Zero);
+                var v0 = new hvec2(new GlmHalf(-2), new GlmHalf(-4));
+                var v1 = new hvec2(new GlmHalf(9.5), GlmHalf.Zero);
                 Assert.GreaterOrEqual(v0.NormMax + v1.NormMax, (v0 + v1).NormMax);
             }
         }
@@ -742,43 +742,43 @@ namespace GlmSharpTest.Generated.Vec2
         public void InvariantNorm()
         {
             {
-                var v0 = new hvec2(new Half(9), new Half(-6.5));
+                var v0 = new hvec2(new GlmHalf(9), new GlmHalf(-6.5));
                 Assert.LessOrEqual(v0.NormMax, v0.Norm);
             }
             {
-                var v0 = new hvec2(new Half(-0.5), new Half(-3));
+                var v0 = new hvec2(new GlmHalf(-0.5), new GlmHalf(-3));
                 Assert.LessOrEqual(v0.NormMax, v0.Norm);
             }
             {
-                var v0 = new hvec2(new Half(5.5), new Half(4.5));
+                var v0 = new hvec2(new GlmHalf(5.5), new GlmHalf(4.5));
                 Assert.LessOrEqual(v0.NormMax, v0.Norm);
             }
             {
-                var v0 = new hvec2(Half.One, new Half(3));
+                var v0 = new hvec2(GlmHalf.One, new GlmHalf(3));
                 Assert.LessOrEqual(v0.NormMax, v0.Norm);
             }
             {
-                var v0 = new hvec2(new Half(4.5), new Half(7.5));
+                var v0 = new hvec2(new GlmHalf(4.5), new GlmHalf(7.5));
                 Assert.LessOrEqual(v0.NormMax, v0.Norm);
             }
             {
-                var v0 = new hvec2(new Half(-6), Half.One);
+                var v0 = new hvec2(new GlmHalf(-6), GlmHalf.One);
                 Assert.LessOrEqual(v0.NormMax, v0.Norm);
             }
             {
-                var v0 = new hvec2(new Half(1.5), new Half(-4.5));
+                var v0 = new hvec2(new GlmHalf(1.5), new GlmHalf(-4.5));
                 Assert.LessOrEqual(v0.NormMax, v0.Norm);
             }
             {
-                var v0 = new hvec2(new Half(-1), new Half(5));
+                var v0 = new hvec2(new GlmHalf(-1), new GlmHalf(5));
                 Assert.LessOrEqual(v0.NormMax, v0.Norm);
             }
             {
-                var v0 = new hvec2(new Half(4), new Half(-6));
+                var v0 = new hvec2(new GlmHalf(4), new GlmHalf(-6));
                 Assert.LessOrEqual(v0.NormMax, v0.Norm);
             }
             {
-                var v0 = new hvec2(new Half(-7), new Half(3.5));
+                var v0 = new hvec2(new GlmHalf(-7), new GlmHalf(3.5));
                 Assert.LessOrEqual(v0.NormMax, v0.Norm);
             }
         }
@@ -918,7 +918,7 @@ namespace GlmSharpTest.Generated.Vec2
             const int count = 50000;
             for (var _ = 0; _ < count; ++_)
             {
-                var v = hvec2.RandomNormal(random, new Half(-0.121161404122208), new Half(0.74345937033345));
+                var v = hvec2.RandomNormal(random, new GlmHalf(-0.121161404122208), new GlmHalf(0.74345937033345));
                 sum += (dvec2)v;
                 sumSqr += glm.Pow2((dvec2)v);
             }
@@ -943,7 +943,7 @@ namespace GlmSharpTest.Generated.Vec2
             const int count = 50000;
             for (var _ = 0; _ < count; ++_)
             {
-                var v = hvec2.RandomGaussian(random, new Half(-0.730418823068225), new Half(4.91741801841064));
+                var v = hvec2.RandomGaussian(random, new GlmHalf(-0.730418823068225), new GlmHalf(4.91741801841064));
                 sum += (dvec2)v;
                 sumSqr += glm.Pow2((dvec2)v);
             }
@@ -968,7 +968,7 @@ namespace GlmSharpTest.Generated.Vec2
             const int count = 50000;
             for (var _ = 0; _ < count; ++_)
             {
-                var v = hvec2.RandomNormal(random, new Half(1.62351945770137), new Half(6.03476788198332));
+                var v = hvec2.RandomNormal(random, new GlmHalf(1.62351945770137), new GlmHalf(6.03476788198332));
                 sum += (dvec2)v;
                 sumSqr += glm.Pow2((dvec2)v);
             }
@@ -993,7 +993,7 @@ namespace GlmSharpTest.Generated.Vec2
             const int count = 50000;
             for (var _ = 0; _ < count; ++_)
             {
-                var v = hvec2.RandomGaussian(random, new Half(1.63122775202209), new Half(2.1211224059207));
+                var v = hvec2.RandomGaussian(random, new GlmHalf(1.63122775202209), new GlmHalf(2.1211224059207));
                 sum += (dvec2)v;
                 sumSqr += glm.Pow2((dvec2)v);
             }
@@ -1018,7 +1018,7 @@ namespace GlmSharpTest.Generated.Vec2
             const int count = 50000;
             for (var _ = 0; _ < count; ++_)
             {
-                var v = hvec2.RandomNormal(random, new Half(-0.738127117388941), new Half(8.83106349447326));
+                var v = hvec2.RandomNormal(random, new GlmHalf(-0.738127117388941), new GlmHalf(8.83106349447326));
                 sum += (dvec2)v;
                 sumSqr += glm.Pow2((dvec2)v);
             }

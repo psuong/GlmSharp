@@ -19,7 +19,7 @@ namespace GlmSharp
     [Serializable]
     [DataContract]
     [StructLayout(LayoutKind.Sequential)]
-    public struct hquat : IReadOnlyList<Half>, IEquatable<hquat>
+    public struct hquat : IReadOnlyList<GlmHalf>, IEquatable<hquat>
     {
 
         #region Fields
@@ -28,25 +28,25 @@ namespace GlmSharp
         /// x-component
         /// </summary>
         [DataMember]
-        public Half x;
+        public GlmHalf x;
         
         /// <summary>
         /// y-component
         /// </summary>
         [DataMember]
-        public Half y;
+        public GlmHalf y;
         
         /// <summary>
         /// z-component
         /// </summary>
         [DataMember]
-        public Half z;
+        public GlmHalf z;
         
         /// <summary>
         /// w-component
         /// </summary>
         [DataMember]
-        public Half w;
+        public GlmHalf w;
 
         #endregion
 
@@ -56,7 +56,7 @@ namespace GlmSharp
         /// <summary>
         /// Component-wise constructor
         /// </summary>
-        public hquat(Half x, Half y, Half z, Half w)
+        public hquat(GlmHalf x, GlmHalf y, GlmHalf z, GlmHalf w)
         {
             this.x = x;
             this.y = y;
@@ -67,7 +67,7 @@ namespace GlmSharp
         /// <summary>
         /// all-same-value constructor
         /// </summary>
-        public hquat(Half v)
+        public hquat(GlmHalf v)
         {
             this.x = v;
             this.y = v;
@@ -89,7 +89,7 @@ namespace GlmSharp
         /// <summary>
         /// vector-and-scalar constructor (CAUTION: not angle-axis, use FromAngleAxis instead)
         /// </summary>
-        public hquat(hvec3 v, Half s)
+        public hquat(hvec3 v, GlmHalf s)
         {
             this.x = v.x;
             this.y = v.y;
@@ -104,7 +104,7 @@ namespace GlmSharp
         {
             var localW = hvec3.Cross(u, v);
             var dot = hvec3.Dot(u, v);
-            var q = new hquat(localW.x, localW.y, localW.z, Half.One + dot).Normalized;
+            var q = new hquat(localW.x, localW.y, localW.z, GlmHalf.One + dot).Normalized;
             this.x = q.x;
             this.y = q.y;
             this.z = q.z;
@@ -193,7 +193,7 @@ namespace GlmSharp
         /// <summary>
         /// Explicitly converts this to a hvec4.
         /// </summary>
-        public static explicit operator hvec4(hquat v) => new hvec4((Half)v.x, (Half)v.y, (Half)v.z, (Half)v.w);
+        public static explicit operator hvec4(hquat v) => new hvec4((GlmHalf)v.x, (GlmHalf)v.y, (GlmHalf)v.z, (GlmHalf)v.w);
         
         /// <summary>
         /// Explicitly converts this to a dvec4.
@@ -228,12 +228,12 @@ namespace GlmSharp
         /// <summary>
         /// Explicitly converts this to a bvec4.
         /// </summary>
-        public static explicit operator bvec4(hquat v) => new bvec4(v.x != Half.Zero, v.y != Half.Zero, v.z != Half.Zero, v.w != Half.Zero);
+        public static explicit operator bvec4(hquat v) => new bvec4(v.x != GlmHalf.Zero, v.y != GlmHalf.Zero, v.z != GlmHalf.Zero, v.w != GlmHalf.Zero);
         
         /// <summary>
         /// Explicitly converts this to a bquat.
         /// </summary>
-        public static explicit operator bquat(hquat v) => new bquat(v.x != Half.Zero, v.y != Half.Zero, v.z != Half.Zero, v.w != Half.Zero);
+        public static explicit operator bquat(hquat v) => new bquat(v.x != GlmHalf.Zero, v.y != GlmHalf.Zero, v.z != GlmHalf.Zero, v.w != GlmHalf.Zero);
         
         /// <summary>
         /// Creates a quaternion from the rotational part of a hmat3.
@@ -253,7 +253,7 @@ namespace GlmSharp
         /// <summary>
         /// Gets/Sets a specific indexed component (a bit slower than direct access).
         /// </summary>
-        public Half this[int index]
+        public GlmHalf this[int index]
         {
             get
             {
@@ -287,7 +287,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns an array with all values
         /// </summary>
-        public Half[] Values => new[] { x, y, z, w };
+        public GlmHalf[] Values => new[] { x, y, z, w };
         
         /// <summary>
         /// Returns the number of components (4).
@@ -302,17 +302,17 @@ namespace GlmSharp
         /// <summary>
         /// Returns the squared euclidean length of this quaternion.
         /// </summary>
-        public Half LengthSqr => ((x*x + y*y) + (z*z + w*w));
+        public GlmHalf LengthSqr => ((x*x + y*y) + (z*z + w*w));
         
         /// <summary>
         /// Returns a copy of this quaternion with length one (undefined if this has zero length).
         /// </summary>
-        public hquat Normalized => this / (Half)Length;
+        public hquat Normalized => this / (GlmHalf)Length;
         
         /// <summary>
         /// Returns a copy of this quaternion with length one (returns zero if length is zero).
         /// </summary>
-        public hquat NormalizedSafe => this == Zero ? Identity : this / (Half)Length;
+        public hquat NormalizedSafe => this == Zero ? Identity : this / (GlmHalf)Length;
         
         /// <summary>
         /// Returns the represented angle of this quaternion.
@@ -329,7 +329,7 @@ namespace GlmSharp
                 var s1 = 1 - w * w;
                 if (s1 < 0) return hvec3.UnitZ;
                 var s2 = 1 / Math.Sqrt(s1);
-                return new hvec3((Half)(x * s2), (Half)(y * s2), (Half)(z * s2));
+                return new hvec3((GlmHalf)(x * s2), (GlmHalf)(y * s2), (GlmHalf)(z * s2));
             }
         }
         
@@ -381,67 +381,67 @@ namespace GlmSharp
         /// <summary>
         /// Predefined all-zero quaternion
         /// </summary>
-        public static hquat Zero { get; } = new hquat(Half.Zero, Half.Zero, Half.Zero, Half.Zero);
+        public static hquat Zero { get; } = new hquat(GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Predefined all-ones quaternion
         /// </summary>
-        public static hquat Ones { get; } = new hquat(Half.One, Half.One, Half.One, Half.One);
+        public static hquat Ones { get; } = new hquat(GlmHalf.One, GlmHalf.One, GlmHalf.One, GlmHalf.One);
         
         /// <summary>
         /// Predefined identity quaternion
         /// </summary>
-        public static hquat Identity { get; } = new hquat(Half.Zero, Half.Zero, Half.Zero, Half.One);
+        public static hquat Identity { get; } = new hquat(GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.One);
         
         /// <summary>
         /// Predefined unit-X quaternion
         /// </summary>
-        public static hquat UnitX { get; } = new hquat(Half.One, Half.Zero, Half.Zero, Half.Zero);
+        public static hquat UnitX { get; } = new hquat(GlmHalf.One, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Predefined unit-Y quaternion
         /// </summary>
-        public static hquat UnitY { get; } = new hquat(Half.Zero, Half.One, Half.Zero, Half.Zero);
+        public static hquat UnitY { get; } = new hquat(GlmHalf.Zero, GlmHalf.One, GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Predefined unit-Z quaternion
         /// </summary>
-        public static hquat UnitZ { get; } = new hquat(Half.Zero, Half.Zero, Half.One, Half.Zero);
+        public static hquat UnitZ { get; } = new hquat(GlmHalf.Zero, GlmHalf.Zero, GlmHalf.One, GlmHalf.Zero);
         
         /// <summary>
         /// Predefined unit-W quaternion
         /// </summary>
-        public static hquat UnitW { get; } = new hquat(Half.Zero, Half.Zero, Half.Zero, Half.One);
+        public static hquat UnitW { get; } = new hquat(GlmHalf.Zero, GlmHalf.Zero, GlmHalf.Zero, GlmHalf.One);
         
         /// <summary>
         /// Predefined all-MaxValue quaternion
         /// </summary>
-        public static hquat MaxValue { get; } = new hquat(Half.MaxValue, Half.MaxValue, Half.MaxValue, Half.MaxValue);
+        public static hquat MaxValue { get; } = new hquat(GlmHalf.MaxValue, GlmHalf.MaxValue, GlmHalf.MaxValue, GlmHalf.MaxValue);
         
         /// <summary>
         /// Predefined all-MinValue quaternion
         /// </summary>
-        public static hquat MinValue { get; } = new hquat(Half.MinValue, Half.MinValue, Half.MinValue, Half.MinValue);
+        public static hquat MinValue { get; } = new hquat(GlmHalf.MinValue, GlmHalf.MinValue, GlmHalf.MinValue, GlmHalf.MinValue);
         
         /// <summary>
         /// Predefined all-Epsilon quaternion
         /// </summary>
-        public static hquat Epsilon { get; } = new hquat(Half.Epsilon, Half.Epsilon, Half.Epsilon, Half.Epsilon);
+        public static hquat Epsilon { get; } = new hquat(GlmHalf.Epsilon, GlmHalf.Epsilon, GlmHalf.Epsilon, GlmHalf.Epsilon);
         
         /// <summary>
         /// Predefined all-NaN quaternion
         /// </summary>
-        public static hquat NaN { get; } = new hquat(Half.NaN, Half.NaN, Half.NaN, Half.NaN);
+        public static hquat NaN { get; } = new hquat(GlmHalf.NaN, GlmHalf.NaN, GlmHalf.NaN, GlmHalf.NaN);
         
         /// <summary>
         /// Predefined all-NegativeInfinity quaternion
         /// </summary>
-        public static hquat NegativeInfinity { get; } = new hquat(Half.NegativeInfinity, Half.NegativeInfinity, Half.NegativeInfinity, Half.NegativeInfinity);
+        public static hquat NegativeInfinity { get; } = new hquat(GlmHalf.NegativeInfinity, GlmHalf.NegativeInfinity, GlmHalf.NegativeInfinity, GlmHalf.NegativeInfinity);
         
         /// <summary>
         /// Predefined all-PositiveInfinity quaternion
         /// </summary>
-        public static hquat PositiveInfinity { get; } = new hquat(Half.PositiveInfinity, Half.PositiveInfinity, Half.PositiveInfinity, Half.PositiveInfinity);
+        public static hquat PositiveInfinity { get; } = new hquat(GlmHalf.PositiveInfinity, GlmHalf.PositiveInfinity, GlmHalf.PositiveInfinity, GlmHalf.PositiveInfinity);
 
         #endregion
 
@@ -497,7 +497,7 @@ namespace GlmSharp
         /// <summary>
         /// Returns an enumerator that iterates through all components.
         /// </summary>
-        public IEnumerator<Half> GetEnumerator()
+        public IEnumerator<GlmHalf> GetEnumerator()
         {
             yield return x;
             yield return y;
@@ -563,7 +563,7 @@ namespace GlmSharp
         /// <summary>
         /// Rotates this quaternion from an axis and an angle (in radians).
         /// </summary>
-        public hquat Rotated(Half angle, hvec3 v) => this * FromAxisAngle(angle, v);
+        public hquat Rotated(GlmHalf angle, hvec3 v) => this * FromAxisAngle(angle, v);
 
         #endregion
 
@@ -582,7 +582,7 @@ namespace GlmSharp
         {
             var kvp = s.Split(new[] { sep }, StringSplitOptions.None);
             if (kvp.Length != 4) throw new FormatException("input has not exactly 4 parts");
-            return new hquat(Half.Parse(kvp[0].Trim()), Half.Parse(kvp[1].Trim()), Half.Parse(kvp[2].Trim()), Half.Parse(kvp[3].Trim()));
+            return new hquat(GlmHalf.Parse(kvp[0].Trim()), GlmHalf.Parse(kvp[1].Trim()), GlmHalf.Parse(kvp[2].Trim()), GlmHalf.Parse(kvp[3].Trim()));
         }
         
         /// <summary>
@@ -592,7 +592,7 @@ namespace GlmSharp
         {
             var kvp = s.Split(new[] { sep }, StringSplitOptions.None);
             if (kvp.Length != 4) throw new FormatException("input has not exactly 4 parts");
-            return new hquat(Half.Parse(kvp[0].Trim(), provider), Half.Parse(kvp[1].Trim(), provider), Half.Parse(kvp[2].Trim(), provider), Half.Parse(kvp[3].Trim(), provider));
+            return new hquat(GlmHalf.Parse(kvp[0].Trim(), provider), GlmHalf.Parse(kvp[1].Trim(), provider), GlmHalf.Parse(kvp[2].Trim(), provider), GlmHalf.Parse(kvp[3].Trim(), provider));
         }
         
         /// <summary>
@@ -602,7 +602,7 @@ namespace GlmSharp
         {
             var kvp = s.Split(new[] { sep }, StringSplitOptions.None);
             if (kvp.Length != 4) throw new FormatException("input has not exactly 4 parts");
-            return new hquat(Half.Parse(kvp[0].Trim(), style), Half.Parse(kvp[1].Trim(), style), Half.Parse(kvp[2].Trim(), style), Half.Parse(kvp[3].Trim(), style));
+            return new hquat(GlmHalf.Parse(kvp[0].Trim(), style), GlmHalf.Parse(kvp[1].Trim(), style), GlmHalf.Parse(kvp[2].Trim(), style), GlmHalf.Parse(kvp[3].Trim(), style));
         }
         
         /// <summary>
@@ -612,7 +612,7 @@ namespace GlmSharp
         {
             var kvp = s.Split(new[] { sep }, StringSplitOptions.None);
             if (kvp.Length != 4) throw new FormatException("input has not exactly 4 parts");
-            return new hquat(Half.Parse(kvp[0].Trim(), style, provider), Half.Parse(kvp[1].Trim(), style, provider), Half.Parse(kvp[2].Trim(), style, provider), Half.Parse(kvp[3].Trim(), style, provider));
+            return new hquat(GlmHalf.Parse(kvp[0].Trim(), style, provider), GlmHalf.Parse(kvp[1].Trim(), style, provider), GlmHalf.Parse(kvp[2].Trim(), style, provider), GlmHalf.Parse(kvp[3].Trim(), style, provider));
         }
         
         /// <summary>
@@ -629,8 +629,8 @@ namespace GlmSharp
             if (string.IsNullOrEmpty(s)) return false;
             var kvp = s.Split(new[] { sep }, StringSplitOptions.None);
             if (kvp.Length != 4) return false;
-            Half x = Half.Zero, y = Half.Zero, z = Half.Zero, w = Half.Zero;
-            var ok = ((Half.TryParse(kvp[0].Trim(), out x) && Half.TryParse(kvp[1].Trim(), out y)) && (Half.TryParse(kvp[2].Trim(), out z) && Half.TryParse(kvp[3].Trim(), out w)));
+            GlmHalf x = GlmHalf.Zero, y = GlmHalf.Zero, z = GlmHalf.Zero, w = GlmHalf.Zero;
+            var ok = ((GlmHalf.TryParse(kvp[0].Trim(), out x) && GlmHalf.TryParse(kvp[1].Trim(), out y)) && (GlmHalf.TryParse(kvp[2].Trim(), out z) && GlmHalf.TryParse(kvp[3].Trim(), out w)));
             result = ok ? new hquat(x, y, z, w) : Zero;
             return ok;
         }
@@ -644,8 +644,8 @@ namespace GlmSharp
             if (string.IsNullOrEmpty(s)) return false;
             var kvp = s.Split(new[] { sep }, StringSplitOptions.None);
             if (kvp.Length != 4) return false;
-            Half x = Half.Zero, y = Half.Zero, z = Half.Zero, w = Half.Zero;
-            var ok = ((Half.TryParse(kvp[0].Trim(), style, provider, out x) && Half.TryParse(kvp[1].Trim(), style, provider, out y)) && (Half.TryParse(kvp[2].Trim(), style, provider, out z) && Half.TryParse(kvp[3].Trim(), style, provider, out w)));
+            GlmHalf x = GlmHalf.Zero, y = GlmHalf.Zero, z = GlmHalf.Zero, w = GlmHalf.Zero;
+            var ok = ((GlmHalf.TryParse(kvp[0].Trim(), style, provider, out x) && GlmHalf.TryParse(kvp[1].Trim(), style, provider, out y)) && (GlmHalf.TryParse(kvp[2].Trim(), style, provider, out z) && GlmHalf.TryParse(kvp[3].Trim(), style, provider, out w)));
             result = ok ? new hquat(x, y, z, w) : Zero;
             return ok;
         }
@@ -653,16 +653,16 @@ namespace GlmSharp
         /// <summary>
         /// Returns the inner product (dot product, scalar product) of the two quaternions.
         /// </summary>
-        public static Half Dot(hquat lhs, hquat rhs) => ((lhs.x * rhs.x + lhs.y * rhs.y) + (lhs.z * rhs.z + lhs.w * rhs.w));
+        public static GlmHalf Dot(hquat lhs, hquat rhs) => ((lhs.x * rhs.x + lhs.y * rhs.y) + (lhs.z * rhs.z + lhs.w * rhs.w));
         
         /// <summary>
         /// Creates a quaternion from an axis and an angle (in radians).
         /// </summary>
-        public static hquat FromAxisAngle(Half angle, hvec3 v)
+        public static hquat FromAxisAngle(GlmHalf angle, hvec3 v)
         {
             var s = Math.Sin((double)angle * 0.5);
             var c = Math.Cos((double)angle * 0.5);
-            return new hquat((Half)((double)v.x * s), (Half)((double)v.y * s), (Half)((double)v.z * s), (Half)c);
+            return new hquat((GlmHalf)((double)v.x * s), (GlmHalf)((double)v.y * s), (GlmHalf)((double)v.z * s), (GlmHalf)c);
         }
         
         /// <summary>
@@ -695,10 +695,10 @@ namespace GlmSharp
             var mult = 0.25 / biggestVal;
             switch(biggestIndex)
             {
-                case 0: return new hquat((Half)((double)(m.m12 - m.m21) * mult), (Half)((double)(m.m20 - m.m02) * mult), (Half)((double)(m.m01 - m.m10) * mult), (Half)(biggestVal));
-                case 1: return new hquat((Half)(biggestVal), (Half)((double)(m.m01 + m.m10) * mult), (Half)((double)(m.m20 + m.m02) * mult), (Half)((double)(m.m12 - m.m21) * mult));
-                case 2: return new hquat((Half)((double)(m.m01 + m.m10) * mult), (Half)(biggestVal), (Half)((double)(m.m12 + m.m21) * mult), (Half)((double)(m.m20 - m.m02) * mult));
-                default: return new hquat((Half)((double)(m.m20 + m.m02) * mult), (Half)((double)(m.m12 + m.m21) * mult), (Half)(biggestVal), (Half)((double)(m.m01 - m.m10) * mult));
+                case 0: return new hquat((GlmHalf)((double)(m.m12 - m.m21) * mult), (GlmHalf)((double)(m.m20 - m.m02) * mult), (GlmHalf)((double)(m.m01 - m.m10) * mult), (GlmHalf)(biggestVal));
+                case 1: return new hquat((GlmHalf)(biggestVal), (GlmHalf)((double)(m.m01 + m.m10) * mult), (GlmHalf)((double)(m.m20 + m.m02) * mult), (GlmHalf)((double)(m.m12 - m.m21) * mult));
+                case 2: return new hquat((GlmHalf)((double)(m.m01 + m.m10) * mult), (GlmHalf)(biggestVal), (GlmHalf)((double)(m.m12 + m.m21) * mult), (GlmHalf)((double)(m.m20 - m.m02) * mult));
+                default: return new hquat((GlmHalf)((double)(m.m20 + m.m02) * mult), (GlmHalf)((double)(m.m12 + m.m21) * mult), (GlmHalf)(biggestVal), (GlmHalf)((double)(m.m01 - m.m10) * mult));
             }
         }
         
@@ -715,7 +715,7 @@ namespace GlmSharp
         /// <summary>
         /// Calculates a proper spherical interpolation between two quaternions (only works for normalized quaternions).
         /// </summary>
-        public static hquat Mix(hquat x, hquat y, Half a)
+        public static hquat Mix(hquat x, hquat y, GlmHalf a)
         {
             var cosTheta = (double)Dot(x, y);
             if (cosTheta > 1 - float.Epsilon)
@@ -730,7 +730,7 @@ namespace GlmSharp
         /// <summary>
         /// Calculates a proper spherical interpolation between two quaternions (only works for normalized quaternions).
         /// </summary>
-        public static hquat SLerp(hquat x, hquat y, Half a)
+        public static hquat SLerp(hquat x, hquat y, GlmHalf a)
         {
             var z = y;
             var cosTheta = (double)Dot(x, y);
@@ -747,7 +747,7 @@ namespace GlmSharp
         /// <summary>
         /// Applies squad interpolation of these quaternions
         /// </summary>
-        public static hquat Squad(hquat q1, hquat q2, hquat s1, hquat s2, Half h) => Mix(Mix(q1, q2, h), Mix(s1, s2, h), 2 * (1 - h) * h);
+        public static hquat Squad(hquat q1, hquat q2, hquat s1, hquat s2, GlmHalf h) => Mix(Mix(q1, q2, h), Mix(s1, s2, h), 2 * (1 - h) * h);
 
         #endregion
 
@@ -757,52 +757,52 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec4 from component-wise application of IsInfinity (Half.IsInfinity(v)).
         /// </summary>
-        public static bvec4 IsInfinity(hquat v) => new bvec4(Half.IsInfinity(v.x), Half.IsInfinity(v.y), Half.IsInfinity(v.z), Half.IsInfinity(v.w));
+        public static bvec4 IsInfinity(hquat v) => new bvec4(GlmHalf.IsInfinity(v.x), GlmHalf.IsInfinity(v.y), GlmHalf.IsInfinity(v.z), GlmHalf.IsInfinity(v.w));
         
         /// <summary>
         /// Returns a bvec from the application of IsInfinity (Half.IsInfinity(v)).
         /// </summary>
-        public static bvec4 IsInfinity(Half v) => new bvec4(Half.IsInfinity(v));
+        public static bvec4 IsInfinity(GlmHalf v) => new bvec4(GlmHalf.IsInfinity(v));
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of IsFinite (!Half.IsNaN(v) &amp;&amp; !Half.IsInfinity(v)).
         /// </summary>
-        public static bvec4 IsFinite(hquat v) => new bvec4(!Half.IsNaN(v.x) && !Half.IsInfinity(v.x), !Half.IsNaN(v.y) && !Half.IsInfinity(v.y), !Half.IsNaN(v.z) && !Half.IsInfinity(v.z), !Half.IsNaN(v.w) && !Half.IsInfinity(v.w));
+        public static bvec4 IsFinite(hquat v) => new bvec4(!GlmHalf.IsNaN(v.x) && !GlmHalf.IsInfinity(v.x), !GlmHalf.IsNaN(v.y) && !GlmHalf.IsInfinity(v.y), !GlmHalf.IsNaN(v.z) && !GlmHalf.IsInfinity(v.z), !GlmHalf.IsNaN(v.w) && !GlmHalf.IsInfinity(v.w));
         
         /// <summary>
         /// Returns a bvec from the application of IsFinite (!Half.IsNaN(v) &amp;&amp; !Half.IsInfinity(v)).
         /// </summary>
-        public static bvec4 IsFinite(Half v) => new bvec4(!Half.IsNaN(v) && !Half.IsInfinity(v));
+        public static bvec4 IsFinite(GlmHalf v) => new bvec4(!GlmHalf.IsNaN(v) && !GlmHalf.IsInfinity(v));
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of IsNaN (Half.IsNaN(v)).
         /// </summary>
-        public static bvec4 IsNaN(hquat v) => new bvec4(Half.IsNaN(v.x), Half.IsNaN(v.y), Half.IsNaN(v.z), Half.IsNaN(v.w));
+        public static bvec4 IsNaN(hquat v) => new bvec4(GlmHalf.IsNaN(v.x), GlmHalf.IsNaN(v.y), GlmHalf.IsNaN(v.z), GlmHalf.IsNaN(v.w));
         
         /// <summary>
         /// Returns a bvec from the application of IsNaN (Half.IsNaN(v)).
         /// </summary>
-        public static bvec4 IsNaN(Half v) => new bvec4(Half.IsNaN(v));
+        public static bvec4 IsNaN(GlmHalf v) => new bvec4(GlmHalf.IsNaN(v));
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of IsNegativeInfinity (Half.IsNegativeInfinity(v)).
         /// </summary>
-        public static bvec4 IsNegativeInfinity(hquat v) => new bvec4(Half.IsNegativeInfinity(v.x), Half.IsNegativeInfinity(v.y), Half.IsNegativeInfinity(v.z), Half.IsNegativeInfinity(v.w));
+        public static bvec4 IsNegativeInfinity(hquat v) => new bvec4(GlmHalf.IsNegativeInfinity(v.x), GlmHalf.IsNegativeInfinity(v.y), GlmHalf.IsNegativeInfinity(v.z), GlmHalf.IsNegativeInfinity(v.w));
         
         /// <summary>
         /// Returns a bvec from the application of IsNegativeInfinity (Half.IsNegativeInfinity(v)).
         /// </summary>
-        public static bvec4 IsNegativeInfinity(Half v) => new bvec4(Half.IsNegativeInfinity(v));
+        public static bvec4 IsNegativeInfinity(GlmHalf v) => new bvec4(GlmHalf.IsNegativeInfinity(v));
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of IsPositiveInfinity (Half.IsPositiveInfinity(v)).
         /// </summary>
-        public static bvec4 IsPositiveInfinity(hquat v) => new bvec4(Half.IsPositiveInfinity(v.x), Half.IsPositiveInfinity(v.y), Half.IsPositiveInfinity(v.z), Half.IsPositiveInfinity(v.w));
+        public static bvec4 IsPositiveInfinity(hquat v) => new bvec4(GlmHalf.IsPositiveInfinity(v.x), GlmHalf.IsPositiveInfinity(v.y), GlmHalf.IsPositiveInfinity(v.z), GlmHalf.IsPositiveInfinity(v.w));
         
         /// <summary>
         /// Returns a bvec from the application of IsPositiveInfinity (Half.IsPositiveInfinity(v)).
         /// </summary>
-        public static bvec4 IsPositiveInfinity(Half v) => new bvec4(Half.IsPositiveInfinity(v));
+        public static bvec4 IsPositiveInfinity(GlmHalf v) => new bvec4(GlmHalf.IsPositiveInfinity(v));
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of Equal (lhs == rhs).
@@ -812,17 +812,17 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec4 from component-wise application of Equal (lhs == rhs).
         /// </summary>
-        public static bvec4 Equal(hquat lhs, Half rhs) => new bvec4(lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs);
+        public static bvec4 Equal(hquat lhs, GlmHalf rhs) => new bvec4(lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of Equal (lhs == rhs).
         /// </summary>
-        public static bvec4 Equal(Half lhs, hquat rhs) => new bvec4(lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w);
+        public static bvec4 Equal(GlmHalf lhs, hquat rhs) => new bvec4(lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w);
         
         /// <summary>
         /// Returns a bvec from the application of Equal (lhs == rhs).
         /// </summary>
-        public static bvec4 Equal(Half lhs, Half rhs) => new bvec4(lhs == rhs);
+        public static bvec4 Equal(GlmHalf lhs, GlmHalf rhs) => new bvec4(lhs == rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of NotEqual (lhs != rhs).
@@ -832,17 +832,17 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec4 from component-wise application of NotEqual (lhs != rhs).
         /// </summary>
-        public static bvec4 NotEqual(hquat lhs, Half rhs) => new bvec4(lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs);
+        public static bvec4 NotEqual(hquat lhs, GlmHalf rhs) => new bvec4(lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of NotEqual (lhs != rhs).
         /// </summary>
-        public static bvec4 NotEqual(Half lhs, hquat rhs) => new bvec4(lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w);
+        public static bvec4 NotEqual(GlmHalf lhs, hquat rhs) => new bvec4(lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w);
         
         /// <summary>
         /// Returns a bvec from the application of NotEqual (lhs != rhs).
         /// </summary>
-        public static bvec4 NotEqual(Half lhs, Half rhs) => new bvec4(lhs != rhs);
+        public static bvec4 NotEqual(GlmHalf lhs, GlmHalf rhs) => new bvec4(lhs != rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of GreaterThan (lhs &gt; rhs).
@@ -852,17 +852,17 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec4 from component-wise application of GreaterThan (lhs &gt; rhs).
         /// </summary>
-        public static bvec4 GreaterThan(hquat lhs, Half rhs) => new bvec4(lhs.x > rhs, lhs.y > rhs, lhs.z > rhs, lhs.w > rhs);
+        public static bvec4 GreaterThan(hquat lhs, GlmHalf rhs) => new bvec4(lhs.x > rhs, lhs.y > rhs, lhs.z > rhs, lhs.w > rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of GreaterThan (lhs &gt; rhs).
         /// </summary>
-        public static bvec4 GreaterThan(Half lhs, hquat rhs) => new bvec4(lhs > rhs.x, lhs > rhs.y, lhs > rhs.z, lhs > rhs.w);
+        public static bvec4 GreaterThan(GlmHalf lhs, hquat rhs) => new bvec4(lhs > rhs.x, lhs > rhs.y, lhs > rhs.z, lhs > rhs.w);
         
         /// <summary>
         /// Returns a bvec from the application of GreaterThan (lhs &gt; rhs).
         /// </summary>
-        public static bvec4 GreaterThan(Half lhs, Half rhs) => new bvec4(lhs > rhs);
+        public static bvec4 GreaterThan(GlmHalf lhs, GlmHalf rhs) => new bvec4(lhs > rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of GreaterThanEqual (lhs &gt;= rhs).
@@ -872,17 +872,17 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec4 from component-wise application of GreaterThanEqual (lhs &gt;= rhs).
         /// </summary>
-        public static bvec4 GreaterThanEqual(hquat lhs, Half rhs) => new bvec4(lhs.x >= rhs, lhs.y >= rhs, lhs.z >= rhs, lhs.w >= rhs);
+        public static bvec4 GreaterThanEqual(hquat lhs, GlmHalf rhs) => new bvec4(lhs.x >= rhs, lhs.y >= rhs, lhs.z >= rhs, lhs.w >= rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of GreaterThanEqual (lhs &gt;= rhs).
         /// </summary>
-        public static bvec4 GreaterThanEqual(Half lhs, hquat rhs) => new bvec4(lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z, lhs >= rhs.w);
+        public static bvec4 GreaterThanEqual(GlmHalf lhs, hquat rhs) => new bvec4(lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z, lhs >= rhs.w);
         
         /// <summary>
         /// Returns a bvec from the application of GreaterThanEqual (lhs &gt;= rhs).
         /// </summary>
-        public static bvec4 GreaterThanEqual(Half lhs, Half rhs) => new bvec4(lhs >= rhs);
+        public static bvec4 GreaterThanEqual(GlmHalf lhs, GlmHalf rhs) => new bvec4(lhs >= rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of LesserThan (lhs &lt; rhs).
@@ -892,17 +892,17 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec4 from component-wise application of LesserThan (lhs &lt; rhs).
         /// </summary>
-        public static bvec4 LesserThan(hquat lhs, Half rhs) => new bvec4(lhs.x < rhs, lhs.y < rhs, lhs.z < rhs, lhs.w < rhs);
+        public static bvec4 LesserThan(hquat lhs, GlmHalf rhs) => new bvec4(lhs.x < rhs, lhs.y < rhs, lhs.z < rhs, lhs.w < rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of LesserThan (lhs &lt; rhs).
         /// </summary>
-        public static bvec4 LesserThan(Half lhs, hquat rhs) => new bvec4(lhs < rhs.x, lhs < rhs.y, lhs < rhs.z, lhs < rhs.w);
+        public static bvec4 LesserThan(GlmHalf lhs, hquat rhs) => new bvec4(lhs < rhs.x, lhs < rhs.y, lhs < rhs.z, lhs < rhs.w);
         
         /// <summary>
         /// Returns a bvec from the application of LesserThan (lhs &lt; rhs).
         /// </summary>
-        public static bvec4 LesserThan(Half lhs, Half rhs) => new bvec4(lhs < rhs);
+        public static bvec4 LesserThan(GlmHalf lhs, GlmHalf rhs) => new bvec4(lhs < rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of LesserThanEqual (lhs &lt;= rhs).
@@ -912,17 +912,17 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec4 from component-wise application of LesserThanEqual (lhs &lt;= rhs).
         /// </summary>
-        public static bvec4 LesserThanEqual(hquat lhs, Half rhs) => new bvec4(lhs.x <= rhs, lhs.y <= rhs, lhs.z <= rhs, lhs.w <= rhs);
+        public static bvec4 LesserThanEqual(hquat lhs, GlmHalf rhs) => new bvec4(lhs.x <= rhs, lhs.y <= rhs, lhs.z <= rhs, lhs.w <= rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of LesserThanEqual (lhs &lt;= rhs).
         /// </summary>
-        public static bvec4 LesserThanEqual(Half lhs, hquat rhs) => new bvec4(lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z, lhs <= rhs.w);
+        public static bvec4 LesserThanEqual(GlmHalf lhs, hquat rhs) => new bvec4(lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z, lhs <= rhs.w);
         
         /// <summary>
         /// Returns a bvec from the application of LesserThanEqual (lhs &lt;= rhs).
         /// </summary>
-        public static bvec4 LesserThanEqual(Half lhs, Half rhs) => new bvec4(lhs <= rhs);
+        public static bvec4 LesserThanEqual(GlmHalf lhs, GlmHalf rhs) => new bvec4(lhs <= rhs);
         
         /// <summary>
         /// Returns a hquat from component-wise application of Lerp (min * (1-a) + max * a).
@@ -932,37 +932,37 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hquat from component-wise application of Lerp (min * (1-a) + max * a).
         /// </summary>
-        public static hquat Lerp(hquat min, hquat max, Half a) => new hquat(min.x * (1-a) + max.x * a, min.y * (1-a) + max.y * a, min.z * (1-a) + max.z * a, min.w * (1-a) + max.w * a);
+        public static hquat Lerp(hquat min, hquat max, GlmHalf a) => new hquat(min.x * (1-a) + max.x * a, min.y * (1-a) + max.y * a, min.z * (1-a) + max.z * a, min.w * (1-a) + max.w * a);
         
         /// <summary>
         /// Returns a hquat from component-wise application of Lerp (min * (1-a) + max * a).
         /// </summary>
-        public static hquat Lerp(hquat min, Half max, hquat a) => new hquat(min.x * (1-a.x) + max * a.x, min.y * (1-a.y) + max * a.y, min.z * (1-a.z) + max * a.z, min.w * (1-a.w) + max * a.w);
+        public static hquat Lerp(hquat min, GlmHalf max, hquat a) => new hquat(min.x * (1-a.x) + max * a.x, min.y * (1-a.y) + max * a.y, min.z * (1-a.z) + max * a.z, min.w * (1-a.w) + max * a.w);
         
         /// <summary>
         /// Returns a hquat from component-wise application of Lerp (min * (1-a) + max * a).
         /// </summary>
-        public static hquat Lerp(hquat min, Half max, Half a) => new hquat(min.x * (1-a) + max * a, min.y * (1-a) + max * a, min.z * (1-a) + max * a, min.w * (1-a) + max * a);
+        public static hquat Lerp(hquat min, GlmHalf max, GlmHalf a) => new hquat(min.x * (1-a) + max * a, min.y * (1-a) + max * a, min.z * (1-a) + max * a, min.w * (1-a) + max * a);
         
         /// <summary>
         /// Returns a hquat from component-wise application of Lerp (min * (1-a) + max * a).
         /// </summary>
-        public static hquat Lerp(Half min, hquat max, hquat a) => new hquat(min * (1-a.x) + max.x * a.x, min * (1-a.y) + max.y * a.y, min * (1-a.z) + max.z * a.z, min * (1-a.w) + max.w * a.w);
+        public static hquat Lerp(GlmHalf min, hquat max, hquat a) => new hquat(min * (1-a.x) + max.x * a.x, min * (1-a.y) + max.y * a.y, min * (1-a.z) + max.z * a.z, min * (1-a.w) + max.w * a.w);
         
         /// <summary>
         /// Returns a hquat from component-wise application of Lerp (min * (1-a) + max * a).
         /// </summary>
-        public static hquat Lerp(Half min, hquat max, Half a) => new hquat(min * (1-a) + max.x * a, min * (1-a) + max.y * a, min * (1-a) + max.z * a, min * (1-a) + max.w * a);
+        public static hquat Lerp(GlmHalf min, hquat max, GlmHalf a) => new hquat(min * (1-a) + max.x * a, min * (1-a) + max.y * a, min * (1-a) + max.z * a, min * (1-a) + max.w * a);
         
         /// <summary>
         /// Returns a hquat from component-wise application of Lerp (min * (1-a) + max * a).
         /// </summary>
-        public static hquat Lerp(Half min, Half max, hquat a) => new hquat(min * (1-a.x) + max * a.x, min * (1-a.y) + max * a.y, min * (1-a.z) + max * a.z, min * (1-a.w) + max * a.w);
+        public static hquat Lerp(GlmHalf min, GlmHalf max, hquat a) => new hquat(min * (1-a.x) + max * a.x, min * (1-a.y) + max * a.y, min * (1-a.z) + max * a.z, min * (1-a.w) + max * a.w);
         
         /// <summary>
         /// Returns a hquat from the application of Lerp (min * (1-a) + max * a).
         /// </summary>
-        public static hquat Lerp(Half min, Half max, Half a) => new hquat(min * (1-a) + max * a);
+        public static hquat Lerp(GlmHalf min, GlmHalf max, GlmHalf a) => new hquat(min * (1-a) + max * a);
 
         #endregion
 
@@ -977,12 +977,12 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec4 from component-wise application of operator&lt; (lhs &lt; rhs).
         /// </summary>
-        public static bvec4 operator<(hquat lhs, Half rhs) => new bvec4(lhs.x < rhs, lhs.y < rhs, lhs.z < rhs, lhs.w < rhs);
+        public static bvec4 operator<(hquat lhs, GlmHalf rhs) => new bvec4(lhs.x < rhs, lhs.y < rhs, lhs.z < rhs, lhs.w < rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of operator&lt; (lhs &lt; rhs).
         /// </summary>
-        public static bvec4 operator<(Half lhs, hquat rhs) => new bvec4(lhs < rhs.x, lhs < rhs.y, lhs < rhs.z, lhs < rhs.w);
+        public static bvec4 operator<(GlmHalf lhs, hquat rhs) => new bvec4(lhs < rhs.x, lhs < rhs.y, lhs < rhs.z, lhs < rhs.w);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of operator&lt;= (lhs &lt;= rhs).
@@ -992,12 +992,12 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec4 from component-wise application of operator&lt;= (lhs &lt;= rhs).
         /// </summary>
-        public static bvec4 operator<=(hquat lhs, Half rhs) => new bvec4(lhs.x <= rhs, lhs.y <= rhs, lhs.z <= rhs, lhs.w <= rhs);
+        public static bvec4 operator<=(hquat lhs, GlmHalf rhs) => new bvec4(lhs.x <= rhs, lhs.y <= rhs, lhs.z <= rhs, lhs.w <= rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of operator&lt;= (lhs &lt;= rhs).
         /// </summary>
-        public static bvec4 operator<=(Half lhs, hquat rhs) => new bvec4(lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z, lhs <= rhs.w);
+        public static bvec4 operator<=(GlmHalf lhs, hquat rhs) => new bvec4(lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z, lhs <= rhs.w);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of operator&gt; (lhs &gt; rhs).
@@ -1007,12 +1007,12 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec4 from component-wise application of operator&gt; (lhs &gt; rhs).
         /// </summary>
-        public static bvec4 operator>(hquat lhs, Half rhs) => new bvec4(lhs.x > rhs, lhs.y > rhs, lhs.z > rhs, lhs.w > rhs);
+        public static bvec4 operator>(hquat lhs, GlmHalf rhs) => new bvec4(lhs.x > rhs, lhs.y > rhs, lhs.z > rhs, lhs.w > rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of operator&gt; (lhs &gt; rhs).
         /// </summary>
-        public static bvec4 operator>(Half lhs, hquat rhs) => new bvec4(lhs > rhs.x, lhs > rhs.y, lhs > rhs.z, lhs > rhs.w);
+        public static bvec4 operator>(GlmHalf lhs, hquat rhs) => new bvec4(lhs > rhs.x, lhs > rhs.y, lhs > rhs.z, lhs > rhs.w);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of operator&gt;= (lhs &gt;= rhs).
@@ -1022,12 +1022,12 @@ namespace GlmSharp
         /// <summary>
         /// Returns a bvec4 from component-wise application of operator&gt;= (lhs &gt;= rhs).
         /// </summary>
-        public static bvec4 operator>=(hquat lhs, Half rhs) => new bvec4(lhs.x >= rhs, lhs.y >= rhs, lhs.z >= rhs, lhs.w >= rhs);
+        public static bvec4 operator>=(hquat lhs, GlmHalf rhs) => new bvec4(lhs.x >= rhs, lhs.y >= rhs, lhs.z >= rhs, lhs.w >= rhs);
         
         /// <summary>
         /// Returns a bvec4 from component-wise application of operator&gt;= (lhs &gt;= rhs).
         /// </summary>
-        public static bvec4 operator>=(Half lhs, hquat rhs) => new bvec4(lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z, lhs >= rhs.w);
+        public static bvec4 operator>=(GlmHalf lhs, hquat rhs) => new bvec4(lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z, lhs >= rhs.w);
         
         /// <summary>
         /// Returns a hquat from component-wise application of operator+ (identity).
@@ -1047,12 +1047,12 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hquat from component-wise application of operator+ (lhs + rhs).
         /// </summary>
-        public static hquat operator+(hquat lhs, Half rhs) => new hquat(lhs.x + rhs, lhs.y + rhs, lhs.z + rhs, lhs.w + rhs);
+        public static hquat operator+(hquat lhs, GlmHalf rhs) => new hquat(lhs.x + rhs, lhs.y + rhs, lhs.z + rhs, lhs.w + rhs);
         
         /// <summary>
         /// Returns a hquat from component-wise application of operator+ (lhs + rhs).
         /// </summary>
-        public static hquat operator+(Half lhs, hquat rhs) => new hquat(lhs + rhs.x, lhs + rhs.y, lhs + rhs.z, lhs + rhs.w);
+        public static hquat operator+(GlmHalf lhs, hquat rhs) => new hquat(lhs + rhs.x, lhs + rhs.y, lhs + rhs.z, lhs + rhs.w);
         
         /// <summary>
         /// Returns a hquat from component-wise application of operator- (lhs - rhs).
@@ -1062,27 +1062,27 @@ namespace GlmSharp
         /// <summary>
         /// Returns a hquat from component-wise application of operator- (lhs - rhs).
         /// </summary>
-        public static hquat operator-(hquat lhs, Half rhs) => new hquat(lhs.x - rhs, lhs.y - rhs, lhs.z - rhs, lhs.w - rhs);
+        public static hquat operator-(hquat lhs, GlmHalf rhs) => new hquat(lhs.x - rhs, lhs.y - rhs, lhs.z - rhs, lhs.w - rhs);
         
         /// <summary>
         /// Returns a hquat from component-wise application of operator- (lhs - rhs).
         /// </summary>
-        public static hquat operator-(Half lhs, hquat rhs) => new hquat(lhs - rhs.x, lhs - rhs.y, lhs - rhs.z, lhs - rhs.w);
+        public static hquat operator-(GlmHalf lhs, hquat rhs) => new hquat(lhs - rhs.x, lhs - rhs.y, lhs - rhs.z, lhs - rhs.w);
         
         /// <summary>
         /// Returns a hquat from component-wise application of operator* (lhs * rhs).
         /// </summary>
-        public static hquat operator*(hquat lhs, Half rhs) => new hquat(lhs.x * rhs, lhs.y * rhs, lhs.z * rhs, lhs.w * rhs);
+        public static hquat operator*(hquat lhs, GlmHalf rhs) => new hquat(lhs.x * rhs, lhs.y * rhs, lhs.z * rhs, lhs.w * rhs);
         
         /// <summary>
         /// Returns a hquat from component-wise application of operator* (lhs * rhs).
         /// </summary>
-        public static hquat operator*(Half lhs, hquat rhs) => new hquat(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w);
+        public static hquat operator*(GlmHalf lhs, hquat rhs) => new hquat(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w);
         
         /// <summary>
         /// Returns a hquat from component-wise application of operator/ (lhs / rhs).
         /// </summary>
-        public static hquat operator/(hquat lhs, Half rhs) => new hquat(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs);
+        public static hquat operator/(hquat lhs, GlmHalf rhs) => new hquat(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs);
 
         #endregion
 

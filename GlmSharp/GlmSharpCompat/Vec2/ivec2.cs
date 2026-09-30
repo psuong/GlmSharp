@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
 using GlmSharp.Swizzle;
 
 // ReSharper disable InconsistentNaming
@@ -137,7 +136,7 @@ namespace GlmSharp
         /// <summary>
         /// Implicitly converts this to a hvec2.
         /// </summary>
-        public static implicit operator hvec2(ivec2 v) => new hvec2((Half)v.x, (Half)v.y);
+        public static implicit operator hvec2(ivec2 v) => new hvec2((GlmHalf)v.x, (GlmHalf)v.y);
         
         /// <summary>
         /// Implicitly converts this to a dvec2.
@@ -192,12 +191,12 @@ namespace GlmSharp
         /// <summary>
         /// Explicitly converts this to a hvec3. (Higher components are zeroed)
         /// </summary>
-        public static explicit operator hvec3(ivec2 v) => new hvec3((Half)v.x, (Half)v.y, Half.Zero);
+        public static explicit operator hvec3(ivec2 v) => new hvec3((GlmHalf)v.x, (GlmHalf)v.y, GlmHalf.Zero);
         
         /// <summary>
         /// Explicitly converts this to a hvec4. (Higher components are zeroed)
         /// </summary>
-        public static explicit operator hvec4(ivec2 v) => new hvec4((Half)v.x, (Half)v.y, Half.Zero, Half.Zero);
+        public static explicit operator hvec4(ivec2 v) => new hvec4((GlmHalf)v.x, (GlmHalf)v.y, GlmHalf.Zero, GlmHalf.Zero);
         
         /// <summary>
         /// Explicitly converts this to a dvec3. (Higher components are zeroed)

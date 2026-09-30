@@ -103,7 +103,7 @@ namespace GlmSharpGenerator.Types
         /// All members
         /// </summary>
         private Member[] members;
-        private Field[] fields;
+        internal Field[] fields;
         private Constructor[] constructors;
         private Property[] properties;
         private Property[] staticProperties;
@@ -287,8 +287,8 @@ namespace GlmSharpGenerator.Types
                 {
                     yield return "";
                     yield return "        #region Fields";
-                    foreach (var field in fields)
-                        foreach (var line in field.Lines)
+                    foreach (var @field in fields)
+                        foreach (var line in @field.Lines)
                             yield return line.Indent(2);
                     yield return "";
                     yield return "        #endregion";
