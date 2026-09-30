@@ -5,8 +5,6 @@ using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using System.Numerics;
-using System.Linq;
-using GlmSharp.Swizzle;
 
 // ReSharper disable InconsistentNaming
 
